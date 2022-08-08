@@ -1,0 +1,4 @@
+name: JW_Guitar
+version: '${project.version}'
+main: jw.guitar.Main
+api-version: 1.17
