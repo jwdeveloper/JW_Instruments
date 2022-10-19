@@ -1,11 +1,11 @@
 package jw.guitar.gui;
 
 import jw.guitar.services.InstrumentService;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.spigot_fluent_api.fluent_gui.implementation.crafting_ui.CraftingUI;
-import jw.spigot_fluent_api.fluent_tasks.FluentTaskTimer;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent_api.minecraft.gui.implementation.crafting_ui.CraftingUI;
+import jw.fluent_api.minecraft.tasks.FluentTaskTimer;
 import org.bukkit.entity.Player;
 
 @Injection(lifeTime = LifeTime.TRANSIENT)

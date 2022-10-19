@@ -4,9 +4,9 @@ package jw.guitar.managers;
 import jw.guitar.chords.Chord;
 import jw.guitar.data.instument.InstrumentDataObserver;
 import jw.guitar.services.ChordService;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import lombok.Getter;
 import lombok.Setter;
 

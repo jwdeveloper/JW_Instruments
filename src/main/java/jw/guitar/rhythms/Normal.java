@@ -3,7 +3,7 @@ package jw.guitar.rhythms;
 
 import jw.guitar.rhythms.events.NoteEvent;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
+import jw.fluent_api.minecraft.logger.FluentLogger;
 
 import java.util.HashSet;
 import java.util.Set;

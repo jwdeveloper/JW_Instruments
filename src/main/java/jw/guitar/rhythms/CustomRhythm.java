@@ -5,10 +5,10 @@ import jw.guitar.rhythms.events.ChordChangeEvent;
 import jw.guitar.rhythms.events.NoteEvent;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
 import jw.guitar.rhythms.timeline.Timeline;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.IgnoreInjection;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import jw.spigot_fluent_api.fluent_tasks.FluentTaskTimer;
-import jw.spigot_fluent_api.fluent_tasks.FluentTasks;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.IgnoreInjection;
+import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_api.minecraft.tasks.FluentTaskTimer;
+import jw.fluent_api.minecraft.tasks.FluentTasks;
 
 import java.util.HashSet;
 import java.util.Set;

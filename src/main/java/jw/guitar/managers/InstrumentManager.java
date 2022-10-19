@@ -5,10 +5,10 @@ import jw.guitar.chords.Chord;
 import jw.guitar.gameobjects.InstrumentPlayer;
 import jw.guitar.gameobjects.instuments.Instrument;
 import jw.guitar.services.InstrumentDataService;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.spigot_fluent_api.fluent_gameobjects.implementation.GameObjectManager;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent_api.minecraft.gameobjects.implementation.GameObjectManager;
+import jw.fluent_api.minecraft.logger.FluentLogger;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 

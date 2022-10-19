@@ -1,9 +1,7 @@
 package jw.guitar.chords;
 
 import jw.guitar.data.Consts;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import jw.spigot_fluent_api.fluent_plugin.FluentPlugin;
-import org.bukkit.Material;
+import jw.fluent_plugin.FluentPlugin;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;

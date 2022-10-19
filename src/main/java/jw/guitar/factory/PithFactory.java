@@ -1,15 +1,11 @@
 package jw.guitar.factory;
 
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import jw.spigot_fluent_api.fluent_plugin.FluentPlugin;
+import jw.fluent_api.minecraft.logger.FluentLogger;
 import lombok.Data;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class PithFactory {
 

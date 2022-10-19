@@ -1,4 +1,3 @@
-import jw.spigot_fluent_api.utilites.code_generator.ObserverClassGenerator;
 import org.junit.Test;
 
 public class GenerateObserver

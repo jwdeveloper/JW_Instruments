@@ -5,15 +5,15 @@ import jw.guitar.gui.GuitarCraftingGui;
 import jw.guitar.gui.songs.SongsListGui;
 import jw.guitar.managers.InstrumentManager;
 import jw.guitar.services.InstrumentService;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.FluentInjection;
-import jw.spigot_fluent_api.fluent_commands.FluentCommand;
-import jw.spigot_fluent_api.fluent_commands.api.builder.CommandBuilder;
-import jw.spigot_fluent_api.fluent_commands.api.builder.config.ArgumentConfig;
-import jw.spigot_fluent_api.fluent_commands.api.enums.ArgumentDisplay;
-import jw.spigot_fluent_api.fluent_commands.api.enums.ArgumentType;
-import jw.spigot_fluent_api.fluent_commands.implementation.events.PlayerCommandEvent;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import jw.spigot_fluent_api.fluent_message.FluentMessage;
+import jw.fluent_api.desing_patterns.dependecy_injection.FluentInjection;
+import jw.fluent_api.minecraft.commands.FluentCommand;
+import jw.fluent_api.minecraft.commands.api.builder.CommandBuilder;
+import jw.fluent_api.minecraft.commands.api.builder.config.ArgumentConfig;
+import jw.fluent_api.minecraft.commands.api.enums.ArgumentDisplay;
+import jw.fluent_api.minecraft.commands.api.enums.ArgumentType;
+import jw.fluent_api.minecraft.commands.implementation.events.PlayerCommandEvent;
+import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_api.minecraft.messages.FluentMessage;
 import org.bukkit.ChatColor;
 
 public class CommandFactory {

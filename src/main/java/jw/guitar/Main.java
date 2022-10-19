@@ -1,17 +1,12 @@
 package jw.guitar;
 
 import jw.guitar.data.Consts;
-import jw.guitar.data.PluginConfig;
 import jw.guitar.plugin_setup.ChordSetup;
 import jw.guitar.plugin_setup.CommandSetup;
 import jw.guitar.plugin_setup.GuitarSetup;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.FluentInjection;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import jw.spigot_fluent_api.fluent_plugin.FluentPlugin;
-import jw.spigot_fluent_api.fluent_plugin.config.ConfigFile;
-import jw.spigot_fluent_api.fluent_plugin.starup_actions.api.PluginConfiguration;
-import jw.spigot_fluent_api.fluent_plugin.starup_actions.api.PluginPipeline;
-import jw.spigot_fluent_api.fluent_plugin.starup_actions.data.PipelineOptions;
+import jw.fluent_plugin.FluentPlugin;
+import jw.fluent_plugin.config.ConfigFile;
+import jw.fluent_plugin.starup_actions.api.PluginConfiguration;
 
 public final class Main extends FluentPlugin {
 

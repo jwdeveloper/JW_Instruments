@@ -1,10 +1,9 @@
 package jw.guitar.gameobjects.test;
 
-import jw.spigot_fluent_api.fluent_gameobjects.api.GameObject;
-import jw.spigot_fluent_api.fluent_gameobjects.api.ModelRenderer;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import jw.spigot_fluent_api.fluent_tasks.FluentTasks;
-import jw.spigot_fluent_api.utilites.math.collistions.HitBox;
+import jw.fluent_api.minecraft.gameobjects.api.GameObject;
+import jw.fluent_api.minecraft.gameobjects.api.ModelRenderer;
+import jw.fluent_api.minecraft.tasks.FluentTasks;
+import jw.fluent_api.utilites.math.collistions.HitBox;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;

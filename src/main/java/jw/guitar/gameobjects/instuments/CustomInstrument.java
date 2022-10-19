@@ -2,9 +2,9 @@ package jw.guitar.gameobjects.instuments;
 
 import jw.guitar.data.Consts;
 import jw.guitar.data.CustomSkin;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.IgnoreInjection;
-import jw.spigot_fluent_api.fluent_gameobjects.api.models.CustomModel;
-import jw.spigot_fluent_api.fluent_plugin.FluentPlugin;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.IgnoreInjection;
+import jw.fluent_api.minecraft.gameobjects.api.models.CustomModel;
+import jw.fluent_plugin.FluentPlugin;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;

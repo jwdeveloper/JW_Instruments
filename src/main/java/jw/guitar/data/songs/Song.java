@@ -1,9 +1,9 @@
 package jw.guitar.data.songs;
 
-import jw.spigot_fluent_api.data.implementation.DataModel;
-import jw.spigot_fluent_api.fluent_message.FluentMessage;
-import jw.spigot_fluent_api.utilites.java.JavaUtils;
-import jw.spigot_fluent_api.utilites.messages.Emoticons;
+import jw.fluent_api.desing_patterns.unit_of_work.api.models.DataModel;
+import jw.fluent_api.minecraft.messages.FluentMessage;
+import jw.fluent_api.utilites.java.JavaUtils;
+import jw.fluent_api.utilites.messages.Emoticons;
 import lombok.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

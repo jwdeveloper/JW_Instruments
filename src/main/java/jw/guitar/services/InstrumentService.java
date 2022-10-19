@@ -4,8 +4,8 @@ package jw.guitar.services;
 import jw.guitar.data.CustomSkin;
 import jw.guitar.gameobjects.instuments.CustomInstrument;
 import jw.guitar.gameobjects.instuments.Instrument;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import lombok.Getter;
 
 import java.util.List;

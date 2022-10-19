@@ -3,12 +3,12 @@ package jw.guitar.gui.songs;
 import jw.guitar.data.PluginPermissions;
 import jw.guitar.data.songs.Song;
 import jw.guitar.data.songs.SongsRepository;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.spigot_fluent_api.fluent_gui.implementation.crud_list_ui.CrudListUI;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import jw.spigot_fluent_api.fluent_plugin.default_actions.implementation.languages.Lang;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent_api.minecraft.gui.implementation.crud_list_ui.CrudListUI;
+import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_plugin.default_actions.implementation.languages.Lang;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 

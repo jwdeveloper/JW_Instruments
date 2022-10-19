@@ -1,15 +1,13 @@
 package jw.guitar.rhythms;
 
-import jw.guitar.chords.Chord;
 import jw.guitar.chords.Note;
 import jw.guitar.rhythms.events.NoteEvent;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
 import jw.guitar.rhythms.timeline.Timeline;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import jw.spigot_fluent_api.fluent_tasks.FluentTaskTimer;
-import jw.spigot_fluent_api.fluent_tasks.FluentTasks;
+import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_api.minecraft.tasks.FluentTaskTimer;
+import jw.fluent_api.minecraft.tasks.FluentTasks;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

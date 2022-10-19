@@ -2,9 +2,7 @@ package jw.guitar.factory;
 
 import jw.guitar.rhythms.Rhythm;
 import jw.guitar.builders.rhythm.RhythmBuilder;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import org.bukkit.Bukkit;
-import org.bukkit.Sound;
+import jw.fluent_api.minecraft.logger.FluentLogger;
 
 public class RhythmFactory {
     public static Rhythm RisingSun() {

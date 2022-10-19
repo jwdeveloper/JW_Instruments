@@ -4,10 +4,10 @@ import jw.guitar.chords.Chord;
 import jw.guitar.builders.chord.ChordBuilder;
 import jw.guitar.chords.Note;
 import jw.guitar.data.Consts;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.spigot_fluent_api.fluent_message.FluentMessage;
-import jw.spigot_fluent_api.utilites.math.MathUtility;
-import jw.spigot_fluent_api.utilites.messages.Emoticons;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent_api.minecraft.messages.FluentMessage;
+import jw.fluent_api.utilites.math.MathUtility;
+import jw.fluent_api.utilites.messages.Emoticons;
 import org.bukkit.ChatColor;
 
 import java.util.*;

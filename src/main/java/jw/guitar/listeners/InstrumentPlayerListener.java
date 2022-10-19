@@ -1,10 +1,10 @@
 package jw.guitar.listeners;
 
 import jw.guitar.managers.InstrumentManager;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.spigot_fluent_api.fluent_events.EventBase;
-import jw.spigot_fluent_api.fluent_logger.FluentLogger;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent_api.minecraft.events.EventBase;
+import jw.fluent_api.minecraft.logger.FluentLogger;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;

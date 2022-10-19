@@ -4,9 +4,9 @@ import jw.guitar.factory.RhythmFactory;
 import jw.guitar.rhythms.*;
 import jw.guitar.rhythms.events.NoteEvent;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import org.bukkit.entity.Player;
 
 import java.util.List;

@@ -3,11 +3,11 @@ package jw.guitar.plugin_setup;
 import jw.guitar.factory.CommandFactory;
 import jw.guitar.managers.InstrumentManager;
 import jw.guitar.services.InstrumentService;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.FluentInjection;
-import jw.spigot_fluent_api.fluent_commands.api.builder.CommandBuilder;
-import jw.spigot_fluent_api.fluent_plugin.FluentPlugin;
-import jw.spigot_fluent_api.fluent_plugin.starup_actions.api.PluginPipeline;
-import jw.spigot_fluent_api.fluent_plugin.starup_actions.data.PipelineOptions;
+import jw.fluent_api.desing_patterns.dependecy_injection.FluentInjection;
+import jw.fluent_api.minecraft.commands.api.builder.CommandBuilder;
+import jw.fluent_plugin.FluentPlugin;
+import jw.fluent_plugin.starup_actions.api.PluginPipeline;
+import jw.fluent_plugin.starup_actions.data.PipelineOptions;
 
 public class CommandSetup implements PluginPipeline {
     @Override
