@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "minecraft:item/arrow"
+  },
+  "overrides": [
+
+    { "predicate": {"custom_model_data": 100}, "model": "item/classicalguitar"},
+    { "predicate": {"custom_model_data": 110}, "model": "item/electricguitar"},
+   { "predicate": {"custom_model_data": 120}, "model": "item/acousticguitar"},
+
+
+ { "predicate": {"custom_model_data": 300}, "model": "item/chord/c"},
+{ "predicate": {"custom_model_data": 301}, "model": "item/chord/c_"},
+{ "predicate": {"custom_model_data": 302}, "model": "item/chord/d"},
+{ "predicate": {"custom_model_data": 303}, "model": "item/chord/d_"},
+{ "predicate": {"custom_model_data": 304}, "model": "item/chord/e"},
+{ "predicate": {"custom_model_data": 305}, "model": "item/chord/f"},
+{ "predicate": {"custom_model_data": 306}, "model": "item/chord/f_"},
+{ "predicate": {"custom_model_data": 307}, "model": "item/chord/g"},
+{ "predicate": {"custom_model_data": 308}, "model": "item/chord/g_"},
+{ "predicate": {"custom_model_data": 309}, "model": "item/chord/a"},
+{ "predicate": {"custom_model_data": 310}, "model": "item/chord/a_"},
+{ "predicate": {"custom_model_data": 311}, "model": "item/chord/b"}
+    ]
+}
