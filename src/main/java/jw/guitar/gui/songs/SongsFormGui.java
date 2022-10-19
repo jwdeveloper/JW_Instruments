@@ -6,16 +6,16 @@ import jw.guitar.data.songs.SongsRepository;
 import jw.guitar.factory.ButtonsFactory;
 import jw.guitar.gui.ChordPickerGui;
 import jw.guitar.services.ChordService;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Injection;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.enums.LifeTime;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.spigot_fluent_api.fluent_gui.EventsListenerInventoryUI;
 import jw.spigot_fluent_api.fluent_gui.button.ButtonUI;
 import jw.spigot_fluent_api.fluent_gui.implementation.chest_ui.ChestUI;
 import jw.spigot_fluent_api.fluent_gui.implementation.items_list_ui.ItemsSearchUI;
 import jw.spigot_fluent_api.fluent_logger.FluentLogger;
 import jw.spigot_fluent_api.fluent_message.FluentMessage;
-import jw.spigot_fluent_api.fluent_plugin.languages.Lang;
+import jw.spigot_fluent_api.fluent_plugin.default_actions.implementation.languages.Lang;
 import jw.spigot_fluent_api.utilites.java.JavaUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -50,20 +50,29 @@ public class SongsFormGui extends ChestUI {
     }
 
 
-    public void openInsert(Player player, Map<Integer, String> chords) {
+    public void openInsert(Player player, String[] chords) {
         song = new Song();
         song.setName(player.getName() + "'s song");
         song.setAuthor(player.getName());
         song.setAuthorUUID(player.getUniqueId().toString());
         song.setIcon(Material.MUSIC_DISC_WARD);
-        song.getChords().putAll(chords);
+
+
+        var chord = new HashMap<Integer,String>();
+        for(var i =0;i<chords.length;i++)
+        {
+            if(chords[i] == null)
+                continue;
+            chord.put(i,chords[i]);
+        }
+        song.setChords(chord);
         isInsert = true;
 
         open(player);
     }
 
     public void openInsert(Player player) {
-        openInsert(player,new HashMap<>());
+        openInsert(player,new String[0]);
     }
 
     public void openEdit(Player player, Song song) {
@@ -101,7 +110,7 @@ public class SongsFormGui extends ChestUI {
                     FluentMessage.message()
                             .color(org.bukkit.ChatColor.AQUA)
                             .bold()
-                            .inBrackets("Piano info")
+                            .inBrackets("Piano blockbench-info")
                             .space().
                             reset().
                             text("Write new piano's name on the chat").send(player);

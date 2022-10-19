@@ -2,9 +2,9 @@ package jw.guitar.gui.songs;
 
 import jw.guitar.data.songs.Song;
 import jw.guitar.data.songs.SongsRepository;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Injection;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.enums.LifeTime;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.spigot_fluent_api.fluent_gui.implementation.list_ui.ListUI;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;

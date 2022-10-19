@@ -1,6 +1,6 @@
 package jw.guitar.gameobjects.instuments;
 
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Injection;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.spigot_fluent_api.fluent_gameobjects.api.models.CustomModel;
 import jw.spigot_fluent_api.fluent_plugin.FluentPlugin;
 import org.bukkit.NamespacedKey;
@@ -10,10 +10,10 @@ import org.bukkit.persistence.PersistentDataType;
 
 @Injection
 public interface Instrument {
+
     ShapedRecipe getRecipe();
 
     CustomModel getCustomModel();
-
 
     default NamespacedKey getNamespaceKey() {
         return new NamespacedKey(FluentPlugin.getPlugin(), getName() + "_guitar");

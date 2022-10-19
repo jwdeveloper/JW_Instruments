@@ -14,5 +14,5 @@ for key, values in chords.items():
         print(value)
 
 json_string = json.dumps(result, indent=1)
-with open("chords_output.json", "w") as outfile:
+with open("../chords_output.json", "w") as outfile:
     outfile.write(json_string)

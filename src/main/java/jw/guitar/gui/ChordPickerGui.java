@@ -6,13 +6,14 @@ import jw.guitar.rhythms.Rhythm;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
 import jw.guitar.services.ChordService;
 import jw.guitar.services.InstrumentService;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Injection;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.enums.LifeTime;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.spigot_fluent_api.desing_patterns.observer.ObserverBag;
 import jw.spigot_fluent_api.fluent_gui.button.button_observer.ButtonObserverUI;
 import jw.spigot_fluent_api.fluent_gui.events.ButtonUIEvent;
 import jw.spigot_fluent_api.fluent_gui.implementation.list_ui.ListUI;
+import jw.spigot_fluent_api.fluent_message.FluentMessage;
 import org.bukkit.Material;
 
 import java.util.List;
@@ -26,6 +27,17 @@ public class ChordPickerGui extends ListUI<Chord> {
     private ObserverBag<Integer> currentRythm;
     private List<Rhythm> rhythms;
     private ButtonUIEvent rightClick;
+
+    private static String[] instruction;
+    static
+    {
+       instruction = FluentMessage
+               .message()
+               .field("Left click ", "Select chord").newLine()
+               .field("Right click","Play sound").newLine()
+               .field("Shift click", "Draw chord").newLine()
+               .toArray();
+    }
 
 
     @Inject
@@ -54,22 +66,23 @@ public class ChordPickerGui extends ListUI<Chord> {
             button.setTitlePrimary(chord.fullName());
             button.setCustomMaterial(chord.getItemStack().getType(), chord.getCustomId());
             button.setDataContext(chord);
-            button.setDescription(
-                    "Click to select",
-                    "Right click to play");
-            button.setOnRightClick((player,b)->
+            button.setDescription(instruction);
+            button.setOnRightClick((player, b) ->
             {
                 var chord_ = button.<Chord>getDataContext();
                 var sound = guitarService.getNames().get(currentSound.get());
                 var rythm = rhythms.get(currentRythm.get());
                 rythm.play(new PlayingStyleEvent(player, chord_, true, sound));
-
             });
-
+            button.setOnShiftClick((player, b) ->
+            {
+                b.addDescription(chordService.getDisplay(chord));
+                refreshButton(b);
+            });
         });
         onContentClick((player, button) ->
         {
-            rightClick.execute(player,button);
+            rightClick.execute(player, button);
         });
 
         ButtonObserverUI.factory()

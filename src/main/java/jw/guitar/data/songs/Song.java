@@ -46,7 +46,7 @@ public class Song extends DataModel {
 
 
         description.newLine();
-        description.inBrackets("info").newLine();
+        description.inBrackets("temp/blockbench-info").newLine();
         description.text("Shift click to open url").newLine();
         description.text("Click to give star").newLine();
 

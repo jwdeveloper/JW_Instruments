@@ -3,7 +3,7 @@ package jw.guitar.rhythms;
 
 import jw.guitar.rhythms.events.NoteEvent;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Injection;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 
 import java.util.function.Consumer;
 
@@ -14,19 +14,18 @@ public interface Rhythm {
 
         return  getClass().getSimpleName();
     }
-
-
     default void onEvent(Consumer<NoteEvent> event)
     {
 
     }
+
+    void cancel();
 
     default String getSoundName(int noteId, String guitarName)
     {
         noteId +=1;
         return "minecraft:"+guitarName+noteId;
     }
-
 
     default void emitEvent(NoteEvent noteEvent){};
 

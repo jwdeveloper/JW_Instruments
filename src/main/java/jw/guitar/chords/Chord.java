@@ -1,34 +1,51 @@
 package jw.guitar.chords;
 
+import jw.guitar.data.Consts;
 import jw.spigot_fluent_api.fluent_logger.FluentLogger;
+import jw.spigot_fluent_api.fluent_plugin.FluentPlugin;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.List;
 
 
-public record Chord(String key, String suffix, List<Note> notes) {
+public record Chord(String key, String suffix, Integer fret, List<Note> notes) {
+
 
     public String fullName() {
         return key + " " + suffix;
     }
 
     public ItemStack getItemStack() {
-        var itemstack = new ItemStack(Material.STRING);
-        var meta = itemstack.getItemMeta();
+        var itemStack = new ItemStack(Consts.MODEL_MATERIAL);
+        var meta = itemStack.getItemMeta();
         meta.setDisplayName(fullName());
         meta.setCustomModelData(getCustomId());
-        itemstack.setItemMeta(meta);
-        return itemstack;
+        meta.getPersistentDataContainer().set(getNamespace(), PersistentDataType.STRING,fullName());
+        itemStack.setItemMeta(meta);
+        return itemStack;
     }
 
 
-    public int getCustomId()
-    {
-        FluentLogger.log(key+" ");
+    public static boolean isChord(ItemStack itemStack) {
+        if (itemStack == null)
+            return false;
+        if (itemStack.getItemMeta() == null)
+            return false;
+
+        var container = itemStack.getItemMeta().getPersistentDataContainer();
+        return container.has(getNamespace(), PersistentDataType.STRING);
+    }
+
+    private static NamespacedKey getNamespace() {
+        return new NamespacedKey(FluentPlugin.getPlugin(), "chord");
+    }
+
+    public int getCustomId() {
         var key_ = key.toLowerCase();
-        switch (key_)
-        {
+        switch (key_) {
             case "c":
                 return 300;
             case "c#":

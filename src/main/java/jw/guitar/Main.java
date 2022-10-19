@@ -1,9 +1,17 @@
 package jw.guitar;
 
-import jw.guitar.data.PluginPermissions;
+import jw.guitar.data.Consts;
+import jw.guitar.data.PluginConfig;
+import jw.guitar.plugin_setup.ChordSetup;
+import jw.guitar.plugin_setup.CommandSetup;
+import jw.guitar.plugin_setup.GuitarSetup;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.FluentInjection;
+import jw.spigot_fluent_api.fluent_logger.FluentLogger;
 import jw.spigot_fluent_api.fluent_plugin.FluentPlugin;
 import jw.spigot_fluent_api.fluent_plugin.config.ConfigFile;
-import jw.spigot_fluent_api.fluent_plugin.starup_actions.PluginConfiguration;
+import jw.spigot_fluent_api.fluent_plugin.starup_actions.api.PluginConfiguration;
+import jw.spigot_fluent_api.fluent_plugin.starup_actions.api.PluginPipeline;
+import jw.spigot_fluent_api.fluent_plugin.starup_actions.data.PipelineOptions;
 
 public final class Main extends FluentPlugin {
 
@@ -11,12 +19,19 @@ public final class Main extends FluentPlugin {
     protected void OnConfiguration(PluginConfiguration configuration, ConfigFile configFile) {
 
         configuration
+                .configurePlugin(pluginOptions ->
+                {
+                    pluginOptions.useMetrics(Consts.BSTATS_ID);
+                    pluginOptions.useDefaultNamespace(Consts.NAMESPACE);
+                    pluginOptions.useResourcePack(Consts.RESOURCEPACK_URL);
+                   // pluginOptions.useUpdate(Consts.UPDATE_URL);
+                })
                 .useDebugMode()
                 .useFilesHandler()
-                .userDefaultPermission(PluginPermissions.BASE)
-                .useDefaultCommand(PluginPermissions.BASE)
                 .useCustomAction(new ChordSetup())
-                .useCustomAction(new GuitarSetup());
+                .useCustomAction(new GuitarSetup())
+                .useCustomAction(new CommandSetup());
+
     }
 
     @Override

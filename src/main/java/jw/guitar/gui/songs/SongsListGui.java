@@ -3,18 +3,14 @@ package jw.guitar.gui.songs;
 import jw.guitar.data.PluginPermissions;
 import jw.guitar.data.songs.Song;
 import jw.guitar.data.songs.SongsRepository;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Injection;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.enums.LifeTime;
-import jw.spigot_fluent_api.fluent_gui.EventsListenerInventoryUI;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.spigot_fluent_api.fluent_gui.implementation.crud_list_ui.CrudListUI;
 import jw.spigot_fluent_api.fluent_logger.FluentLogger;
-import jw.spigot_fluent_api.fluent_message.FluentMessage;
-import jw.spigot_fluent_api.fluent_plugin.languages.Lang;
-import jw.spigot_fluent_api.utilites.messages.Emoticons;
+import jw.spigot_fluent_api.fluent_plugin.default_actions.implementation.languages.Lang;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.ChatColor;
 
 
 @Injection(lifeTime = LifeTime.TRANSIENT)

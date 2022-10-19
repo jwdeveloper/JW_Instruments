@@ -1,48 +1,64 @@
 package jw.guitar.rhythms;
 
-import jw.guitar.chords.Chord;
-import jw.guitar.chords.Note;
+import jw.guitar.builders.rhythm.RhythmModel;
+import jw.guitar.rhythms.events.ChordChangeEvent;
 import jw.guitar.rhythms.events.NoteEvent;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
 import jw.guitar.rhythms.timeline.Timeline;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.IgnoreInjection;
 import jw.spigot_fluent_api.fluent_logger.FluentLogger;
 import jw.spigot_fluent_api.fluent_tasks.FluentTaskTimer;
 import jw.spigot_fluent_api.fluent_tasks.FluentTasks;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
-public class Fingering implements Rhythm {
+@IgnoreInjection
+public class CustomRhythm implements Rhythm {
 
     private boolean isReady = true;
     private FluentTaskTimer taskTimer;
     private PlayingStyleEvent queuedEvent;
     private PlayingStyleEvent currentEvent;
 
-    private Set<Consumer<NoteEvent>> events = new HashSet<>();
-    private Timeline timeline;
-    private Integer[] pattern;
-    public Fingering() {
+    private final Set<Consumer<NoteEvent>> onNotes;
+    private final Timeline timeline;
+    private final Consumer<ChordChangeEvent> onChordChange;
+    private final RhythmModel model;
+
+    public CustomRhythm(RhythmModel model) {
         timeline = new Timeline();
+        onNotes = new HashSet<>();
+        onNotes.addAll(model.getEvents());
+        onChordChange = model.getOnChordChanged();
+        this.model = model;
+    }
+
+    @Override
+    public String getName() {
+        return model.getName();
     }
 
     @Override
     public void onEvent(Consumer<NoteEvent> event) {
-        events.add(event);
+        onNotes.add(event);
     }
 
     @Override
     public void cancel() {
-
+        if (taskTimer == null) {
+            return;
+        }
+        currentEvent = null;
+        queuedEvent = null;
+        timeline.reset();
+        taskTimer.cancel();
     }
 
     @Override
     public void emitEvent(NoteEvent noteEvent) {
-
-        for (var event : events) {
+        for (var event : onNotes) {
             event.accept(noteEvent);
         }
     }
@@ -57,18 +73,15 @@ public class Fingering implements Rhythm {
             isReady = true;
             return;
         }
-        FluentLogger.error("A");
+
         if (!isReady) {
             queuedEvent = event;
             return;
         }
-        FluentLogger.error("B");
         setEvent(event);
-        taskTimer = FluentTasks.taskTimer(2, (iteration, task) ->
+        taskTimer = FluentTasks.taskTimer(model.getSpeed(), (iteration, task) ->
                 {
-                    FluentLogger.log("Tick", iteration);
-                    if (timeline.done())
-                    {
+                    if (timeline.done()) {
                         if (queuedEvent != null) {
                             task.setIteration(0);
                             setEvent(queuedEvent);
@@ -79,11 +92,12 @@ public class Fingering implements Rhythm {
                             return;
                         }
                     }
-                    var notes = timeline.next();
-                    for (var note : notes) {
+                    for (var note : timeline.next()) {
+                        //Bukkit.getOnlinePlayers().forEach(c -> c.playSound(c.getLocation(),"minecraft:acoustic3",1,1));
+                        FluentLogger.info("Name",getSoundName(note.id(), currentEvent.guitarType()));
                         currentEvent
                                 .getWorld()
-                                .playSound(currentEvent.getLocation(),
+                                .playSound(currentEvent.player().getLocation(),
                                         getSoundName(note.id(), currentEvent.guitarType()),
                                         1,
                                         note.pitch());
@@ -93,22 +107,12 @@ public class Fingering implements Rhythm {
                 .run();
         isReady = false;
     }
-    public void setEvent(PlayingStyleEvent event) {
+
+    private void setEvent(PlayingStyleEvent event) {
         currentEvent = event;
         timeline.reset();
-        var notes = event.chord().notes();
-
-        timeline.addNote(0, notes.get(1));
-        timeline.addNote(2, notes.get(2));
-        timeline.addNote(3, notes.get(3));
-        timeline.addNote(4, notes.get(4));
-        timeline.addNote(6, notes.get(5));
-        timeline.addNote(8, notes.get(4));
-        timeline.addNote(10, notes.get(3));
+        timeline.setNotes(event.chord().notes());
+        onChordChange.accept(new ChordChangeEvent(event.chord(), timeline));
     }
 
-    public void setPattern(List<Note> notes, Timeline timeline)
-    {
-
-    }
 }

@@ -1,11 +1,15 @@
 package jw.guitar.factory;
 
 import jw.spigot_fluent_api.fluent_logger.FluentLogger;
+import jw.spigot_fluent_api.fluent_plugin.FluentPlugin;
 import lombok.Data;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class PithFactory {
 
@@ -49,16 +53,21 @@ public class PithFactory {
             }
         }
 
-
-        /*for (var fred : fresq) {
+        var result = new ArrayList<FretsTuning>();
+        for(var i =fresq.size()-1;i>=0;i--)
+        {
+            result.add(fresq.get(i));
+        }
+       for (var res : fresq) {
             var string = new StringBuilder();
             var df = new DecimalFormat("#.#");
-            for (var a : fred.getTunnings()) {
-                var res = df.format(a);
-                string.append(res).append(" - ");
+            for (var a : res.getTunnings()) {
+                var b = df.format(a);
+                string.append(b).append(" - ");
             }
-        }*/
-        return fresq;
+            FluentLogger.log(string+" ");
+        }
+        return result;
     }
 
     @Data

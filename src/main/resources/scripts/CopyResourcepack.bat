@@ -1,0 +1,1 @@
+xcopy D:\Git\JW_Guitar\guitarpack C:\Users\ja\AppData\Roaming\.minecraft\resourcepacks\guitarpack /s /e /K /D /H /Y

@@ -1,4 +1,4 @@
-package jw.guitar.gameobjects;
+package jw.guitar.gameobjects.test;
 
 import jw.spigot_fluent_api.fluent_gameobjects.api.GameObject;
 import jw.spigot_fluent_api.fluent_gameobjects.api.ModelRenderer;
@@ -33,7 +33,7 @@ public class NoteGameObject extends GameObject
     @Override
     public void onPlayerInteraction(Player player, Location location) {
         showNote();
-        showHitbox();
+     //   showHitbox();
     }
 
 
@@ -47,17 +47,17 @@ public class NoteGameObject extends GameObject
     {
         FluentTasks.taskTimer(20,(iteration, task) ->
         {
-            hitBox.show();
+           // hitBox.show();
         }).onStop(fluentTaskTimer ->
         {
-            FluentLogger.log("stop hitbox");
-            hitBox.hide();
+            //FluentLogger.log("stop hitbox");
+          //  hitBox.hide();
         }).stopAfterIterations(1).run();
     }
 
     public void show()
     {
-        showHitbox();
+        //showHitbox();
         showNote();
     }
 
@@ -68,7 +68,7 @@ public class NoteGameObject extends GameObject
             modelRenderer.setCustomModel(new ItemStack(Material.DIAMOND));
         }).stopAfterIterations(2).onStop(fluentTaskTimer ->
         {
-            FluentLogger.log("stop note");
+            //FluentLogger.log("stop note");
             modelRenderer.setCustomModel(null);
         }).run();
     }

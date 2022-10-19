@@ -14,11 +14,15 @@ public class Classical implements Instrument {
     @Override
     public ShapedRecipe getRecipe() {
         var recipe = new ShapedRecipe(getNamespaceKey(), getCustomModel().getItemStack());
-        recipe.shape("XX2", "32X", "33X");
+        recipe.shape(
+                "XX2",
+                "32X",
+                "33X");
         recipe.setIngredient('X', Material.AIR);
        // recipe.setIngredient('1', Material.WOODEN_SHOVEL);
         recipe.setIngredient('2', Material.STICK);
         recipe.setIngredient('3', Material.OAK_PLANKS);
+
         return recipe;
     }
 

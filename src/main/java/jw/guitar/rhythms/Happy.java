@@ -20,6 +20,11 @@ public class Happy implements Rhythm {
 
 
     @Override
+    public void cancel() {
+
+    }
+
+    @Override
     public void play(PlayingStyleEvent event) {
         if (event.leftClick())
         {

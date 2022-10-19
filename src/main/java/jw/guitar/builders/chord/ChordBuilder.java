@@ -1,5 +1,7 @@
-package jw.guitar.chords;
+package jw.guitar.builders.chord;
 
+import jw.guitar.chords.Chord;
+import jw.guitar.chords.Note;
 import jw.guitar.factory.PithFactory;
 
 import java.util.ArrayList;
@@ -9,12 +11,18 @@ public class ChordBuilder {
     private final List<Note> notes;
     private String key;
     private String suffix;
+    private Integer fret;
 
 
     ChordBuilder(String key, String suffix) {
+        this(key,suffix,0);
+    }
+
+    ChordBuilder(String key, String suffix, Integer fret) {
         notes = new ArrayList<>();
         this.key = key;
         this.suffix = suffix;
+        this.fret= fret;
     }
 
     public static ChordBuilder create(String name) {
@@ -25,14 +33,18 @@ public class ChordBuilder {
         return new ChordBuilder(key, suffix);
     }
 
+    public static ChordBuilder create(String key, String suffix, Integer fret) {
+        return new ChordBuilder(key, suffix,fret);
+    }
+
     public ChordBuilder addNote(int bar, int id) {
         return addNote(bar, id, 1);
     }
 
-    public ChordBuilder addNote(int bar, int id, float volume) {
-        bar = Math.max(bar, 0);
-        var pitch = getPitch(bar, id);
-        notes.add(new Note(bar, id, pitch, volume));
+    public ChordBuilder addNote(int finger, int stringId, float volume) {
+        finger = Math.max(finger, 0);
+        var pitch = getPitch(finger, stringId);
+        notes.add(new Note(finger, stringId, pitch, volume));
         return this;
     }
 
@@ -113,7 +125,7 @@ public class ChordBuilder {
 
 
     public Chord build() {
-        return new Chord(key, suffix, notes);
+        return new Chord(key, suffix,fret, notes);
     }
 
 }

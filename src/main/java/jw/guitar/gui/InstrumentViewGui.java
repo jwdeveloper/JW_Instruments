@@ -1,15 +1,15 @@
 package jw.guitar.gui;
 
 import jw.guitar.chords.Chord;
-import jw.guitar.data.instument.InstrumentData;
+import jw.guitar.data.instument.InstrumentDataObserver;
 import jw.guitar.data.songs.Song;
 import jw.guitar.factory.ButtonsFactory;
 import jw.guitar.gui.songs.SongsFormGui;
 import jw.guitar.gui.songs.SongsPickerGui;
 import jw.guitar.services.ChordService;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Inject;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.annotations.Injection;
-import jw.spigot_fluent_api.desing_patterns.dependecy_injection.enums.LifeTime;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.spigot_fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.spigot_fluent_api.fluent_gui.button.ButtonUI;
 import jw.spigot_fluent_api.fluent_gui.enums.ButtonType;
 import jw.spigot_fluent_api.fluent_gui.implementation.chest_ui.ChestUI;
@@ -30,7 +30,7 @@ public class InstrumentViewGui extends ChestUI {
     private final ChordService chordService;
     private Map<Integer, ButtonUI> chordsButtons;
 
-    private InstrumentData instrumentData;
+    private InstrumentDataObserver instrumentData;
 
     @Inject
     public InstrumentViewGui(ChordPickerGui chordSearchGui,
@@ -43,7 +43,11 @@ public class InstrumentViewGui extends ChestUI {
         this.chordPickerGui = chordSearchGui;
         this.chordService = chordService;
         this.chordsButtons = new HashMap<>();
-        instrumentData = new InstrumentData();
+    }
+
+    public void open(Player player, InstrumentDataObserver instrumentData) {
+        this.instrumentData = instrumentData;
+        open(player);
     }
 
     @Override
@@ -56,13 +60,14 @@ public class InstrumentViewGui extends ChestUI {
                 .goBackButton(this, getParent())
                 .buildAndAdd(this);
 
+
         ButtonUI.builder()
                 .setMaterial(Material.WRITABLE_BOOK)
                 .setTitlePrimary("save chords to song")
                 .setLocation(0, 5)
                 .setOnClick((player, button) ->
                 {
-                    songsFormGui.openInsert(player, instrumentData.getChords());
+                    songsFormGui.openInsert(player, instrumentData.getChords().get());
                 }).buildAndAdd(this);
 
 
@@ -76,8 +81,9 @@ public class InstrumentViewGui extends ChestUI {
                     {
                         var song = button1.<Song>getDataContext();
                         var chords = song.getChords();
-                        instrumentData.getChords().clear();
-                        instrumentData.getChords().putAll(chords);
+                        for (var set : chords.entrySet()) {
+                            instrumentData.setChords(set.getKey(), set.getValue());
+                        }
                         refreshChords();
                         open(player);
                     });
@@ -86,27 +92,15 @@ public class InstrumentViewGui extends ChestUI {
     }
 
 
-    public void open(Player player, InstrumentData instrumentData)
-    {
-        this.instrumentData = instrumentData;
-        open(player);
-    }
-
-
-    private void refreshChords()
-    {
-        var chords = instrumentData.getChords();
-        for(var i =0;i<INVENTORY_WIDTH;i++)
-        {
-            var chordName = chords.getOrDefault(i, JavaUtils.EMPTY_STRING);
+    private void refreshChords() {
+        var chords = instrumentData.getChords().get();
+        for (var i = 0; i < INVENTORY_WIDTH; i++) {
+            var chordName = chords[i];
             var button = chordsButtons.get(i);
-            if(chordName.equals(JavaUtils.EMPTY_STRING))
-            {
+            if (chordName.equals(JavaUtils.EMPTY_STRING)) {
                 button.setTitlePrimary("Chord place holder");
                 button.setMaterial(Material.GRAY_STAINED_GLASS_PANE);
-            }
-            else
-            {
+            } else {
                 var chord = chordService.get(chordName);
                 button.setTitlePrimary(chord.fullName());
                 button.setCustomMaterial(chord.getItemStack().getType(), chord.getCustomId());
@@ -127,17 +121,14 @@ public class InstrumentViewGui extends ChestUI {
                             var chord = b.<Chord>getDataContext();
                             button.setTitlePrimary(chord.fullName());
                             button.setCustomMaterial(chord.getItemStack().getType(), chord.getCustomId());
-                            instrumentData.getChords().putIfAbsent(slot,chord.fullName());
+                            instrumentData.getChords().get()[slot] = chord.fullName();
                             open(player);
                         });
                         chordPickerGui.open(player);
                     })
                     .setOnShiftClick((player, button) ->
                     {
-                        if (!instrumentData.getChords().containsKey(slot)) {
-                            return;
-                        }
-                        instrumentData.getChords().remove(slot);
+                        instrumentData.getChords().get()[slot] = null;
                         button.setTitlePrimary("Chord place holder");
                         button.setMaterial(Material.GRAY_STAINED_GLASS_PANE);
                         refreshButton(button);
