@@ -1,6 +1,7 @@
 package jw.guitar.gui.songs;
 
 import jw.fluent_api.logger.OldLogger;
+import jw.fluent_plugin.implementation.FluentAPI;
 import jw.guitar.chords.Chord;
 import jw.guitar.data.songs.Song;
 import jw.guitar.data.songs.SongsRepository;
@@ -102,7 +103,7 @@ public class SongsFormGui extends ChestUI {
                 .setMaterial(Material.PAPER)
                 .setTitlePrimary("Rename")
                 .setLocation(3, 6)
-                .setDescription(Lang.get("gui.piano.rename.desc"))
+                .setDescription(FluentAPI.lang().get("gui.piano.rename.desc"))
                 .setOnClick((player, button) ->
                 {
                     close();

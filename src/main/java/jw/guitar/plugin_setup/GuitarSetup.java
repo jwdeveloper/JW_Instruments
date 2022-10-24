@@ -2,6 +2,7 @@ package jw.guitar.plugin_setup;
 
 import jw.fluent_api.logger.OldLogger;
 import jw.fluent_plugin.api.PluginAction;
+import jw.fluent_plugin.implementation.FluentAPI;
 import jw.guitar.data.Consts;
 import jw.guitar.data.PluginConfig;
 import jw.guitar.data.PluginPermissions;
@@ -20,8 +21,8 @@ public class GuitarSetup implements PluginAction {
 
     @Override
     public void pluginEnable(PipelineOptions options) throws Exception {
-        var config = FluentInjection.findInjection(PluginConfig.class);
-        var instrumentService = FluentInjection.findInjection(InstrumentService.class);
+        var config =  FluentAPI.injection().findInjection(PluginConfig.class);
+        var instrumentService =  FluentAPI.injection().findInjection(InstrumentService.class);
         registerCustomSkins(config, instrumentService);
         registerRecipe(config, instrumentService);
 

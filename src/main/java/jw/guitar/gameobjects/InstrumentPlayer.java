@@ -1,5 +1,6 @@
 package jw.guitar.gameobjects;
 
+import jw.fluent_plugin.implementation.FluentAPI;
 import jw.guitar.data.instument.InstrumentDataObserver;
 import jw.guitar.messages.InstrumentMessages;
 import jw.guitar.gui.InstrumentViewGui;
@@ -33,8 +34,8 @@ public class InstrumentPlayer extends GameObject {
 
     @Override
     public void onCreated() {
-        rhythmService = FluentInjection.findInjection(RhythmService.class);
-        chordManager = FluentInjection.findInjection(PlayerChordManager.class);
+        rhythmService = FluentAPI.injection().findInjection(RhythmService.class);
+        chordManager = FluentAPI.injection().findInjection(PlayerChordManager.class);
         chordManager.setDataObserver(data);
     }
 
@@ -97,7 +98,7 @@ public class InstrumentPlayer extends GameObject {
     }
 
     public void openGUI() {
-        FluentInjection.findPlayerInjection(InstrumentViewGui.class, player)
+        FluentAPI.spigot().playerContext().find(InstrumentViewGui.class, player)
                 .open(player, data);
     }
 

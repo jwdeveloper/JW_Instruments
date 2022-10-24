@@ -1,6 +1,7 @@
 package jw.guitar.plugin_setup;
 
 import jw.fluent_plugin.api.PluginAction;
+import jw.fluent_plugin.implementation.FluentAPI;
 import jw.guitar.chords.Chord;
 import jw.guitar.builders.chord.ChordBuilder;
 import jw.guitar.data.Consts;
@@ -21,7 +22,7 @@ public class ChordSetup implements PluginAction {
     @Override
     public void pluginEnable(PipelineOptions options) throws Exception {
 
-        var chordsService = FluentInjection.findInjection(ChordService.class);
+        var chordsService =  FluentAPI.injection().findInjection(ChordService.class);
         var chords = loadChords();
         chordsService.add(chords);
     }

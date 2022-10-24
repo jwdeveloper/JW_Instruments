@@ -1,5 +1,6 @@
 package jw.guitar.plugin_setup;
 
+import jw.fluent_plugin.implementation.FluentAPI;
 import jw.guitar.factory.CommandFactory;
 import jw.guitar.managers.InstrumentManager;
 import jw.guitar.services.InstrumentService;
@@ -11,12 +12,12 @@ import jw.fluent_plugin.api.options.PipelineOptions;
 public class CommandSetup implements PluginAction {
     @Override
     public void pluginEnable(PipelineOptions options) throws Exception {
-        var instrumentService = FluentInjection.findInjection(InstrumentService.class);
+        var instrumentService =  FluentAPI.injection().findInjection(InstrumentService.class);
         registerCommands(options.getDefaultCommand().getBuilder(), instrumentService);
     }
 
     public void registerCommands(CommandBuilder builder, InstrumentService guitarService) {
-        var manager = FluentInjection.findInjection(InstrumentManager.class);
+        var manager =  FluentAPI.injection().findInjection(InstrumentManager.class);
         builder.eventsConfig(eventConfig ->
         {
             eventConfig.onPlayerExecute(event ->

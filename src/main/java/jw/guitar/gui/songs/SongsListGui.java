@@ -1,6 +1,7 @@
 package jw.guitar.gui.songs;
 
 import jw.fluent_api.logger.OldLogger;
+import jw.fluent_plugin.implementation.FluentAPI;
 import jw.guitar.data.PluginPermissions;
 import jw.guitar.data.songs.Song;
 import jw.guitar.data.songs.SongsRepository;
@@ -69,7 +70,7 @@ public class SongsListGui extends CrudListUI<Song> {
             var song = button.<Song>getDataContext();
             var result = repository.deleteOne(song);
             if (!result) {
-                setTitle(Lang.get("gui.base.delete.error"));
+                setTitle( FluentAPI.lang().get("gui.base.delete.error"));
             }
             refreshContent();
         });
