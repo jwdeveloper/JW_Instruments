@@ -1,8 +1,8 @@
 package jw.guitar.gameobjects.instuments;
 
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.minecraft.gameobjects.api.models.CustomModel;
-import jw.fluent_plugin.FluentPlugin;
+import jw.fluent_api.spigot.gameobjects.api.models.CustomModel;
+import jw.fluent_plugin.implementation.FluentPlugin;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;

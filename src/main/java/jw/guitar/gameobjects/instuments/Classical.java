@@ -1,7 +1,7 @@
 package jw.guitar.gameobjects.instuments;
 
 import jw.guitar.data.Consts;
-import jw.fluent_api.minecraft.gameobjects.api.models.CustomModel;
+import jw.fluent_api.spigot.gameobjects.api.models.CustomModel;
 import org.bukkit.Material;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.persistence.PersistentDataType;

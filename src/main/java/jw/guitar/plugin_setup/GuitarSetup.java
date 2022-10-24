@@ -1,23 +1,22 @@
 package jw.guitar.plugin_setup;
 
+import jw.fluent_api.logger.OldLogger;
+import jw.fluent_plugin.api.PluginAction;
 import jw.guitar.data.Consts;
 import jw.guitar.data.PluginConfig;
 import jw.guitar.data.PluginPermissions;
 import jw.guitar.gameobjects.instuments.Instrument;
 import jw.guitar.services.InstrumentService;
-import jw.fluent_api.desing_patterns.dependecy_injection.FluentInjection;
-import jw.fluent_api.minecraft.events.FluentEvent;
-import jw.fluent_api.minecraft.logger.FluentLogger;
-import jw.fluent_api.minecraft.messages.FluentMessage;
-import jw.fluent_plugin.FluentPlugin;
-import jw.fluent_plugin.starup_actions.api.PluginPipeline;
-import jw.fluent_plugin.starup_actions.data.PipelineOptions;
+import jw.fluent_api.spigot.events.FluentEvent;
+import jw.fluent_api.spigot.messages.FluentMessage;
+import jw.fluent_plugin.implementation.FluentPlugin;
+import jw.fluent_plugin.api.options.PipelineOptions;
 import jw.fluent_api.utilites.PermissionsUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.CraftItemEvent;
 
-public class GuitarSetup implements PluginPipeline {
+public class GuitarSetup implements PluginAction {
 
     @Override
     public void pluginEnable(PipelineOptions options) throws Exception {
@@ -42,7 +41,7 @@ public class GuitarSetup implements PluginPipeline {
 
             if(customSkin.getCraftingMaterial() == null)
             {
-                FluentLogger.warning("Unable to load skin " + customSkin.getName(),
+                OldLogger.warning("Unable to load skin " + customSkin.getName(),
                         "Invalid crafting material " + customSkin.getCraftingMaterial());
                 continue;
             }
@@ -52,9 +51,9 @@ public class GuitarSetup implements PluginPipeline {
                 continue;
             }
 
-            FluentLogger.warning("Unable to load skin " + customSkin.getName(),
+            OldLogger.warning("Unable to load skin " + customSkin.getName(),
                     "Parent " + customSkin.getParent() + " not found");
-            FluentLogger.info(parents.toString());
+            OldLogger.info(parents.toString());
         }
     }
 

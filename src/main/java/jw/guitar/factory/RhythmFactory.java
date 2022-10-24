@@ -1,8 +1,8 @@
 package jw.guitar.factory;
 
+import jw.fluent_api.logger.OldLogger;
 import jw.guitar.rhythms.Rhythm;
 import jw.guitar.builders.rhythm.RhythmBuilder;
-import jw.fluent_api.minecraft.logger.FluentLogger;
 
 public class RhythmFactory {
     public static Rhythm RisingSun() {
@@ -23,7 +23,7 @@ public class RhythmFactory {
                 .setSpeed(2)
                 .onNote(noteEvent ->
                 {
-                    FluentLogger.log("siema",noteEvent.toString());
+                    OldLogger.log("siema",noteEvent.toString());
                 })
                 .setName("Rising_Sun")
                 .build();

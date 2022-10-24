@@ -1,5 +1,6 @@
 package jw.guitar.gui.songs;
 
+import jw.fluent_api.logger.OldLogger;
 import jw.guitar.chords.Chord;
 import jw.guitar.data.songs.Song;
 import jw.guitar.data.songs.SongsRepository;
@@ -9,13 +10,11 @@ import jw.guitar.services.ChordService;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_api.minecraft.gui.EventsListenerInventoryUI;
-import jw.fluent_api.minecraft.gui.button.ButtonUI;
-import jw.fluent_api.minecraft.gui.implementation.chest_ui.ChestUI;
-import jw.fluent_api.minecraft.gui.implementation.items_list_ui.ItemsSearchUI;
-import jw.fluent_api.minecraft.logger.FluentLogger;
-import jw.fluent_api.minecraft.messages.FluentMessage;
-import jw.fluent_plugin.default_actions.implementation.languages.Lang;
+import jw.fluent_api.spigot.gui.EventsListenerInventoryUI;
+import jw.fluent_api.spigot.gui.button.ButtonUI;
+import jw.fluent_api.spigot.gui.implementation.chest_ui.ChestUI;
+import jw.fluent_api.spigot.gui.implementation.items_list_ui.ItemsSearchUI;
+import jw.fluent_api.spigot.messages.FluentMessage;
 import jw.fluent_api.utilites.java.JavaUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -224,10 +223,10 @@ public class SongsFormGui extends ChestUI {
                 {
                     if (isInsert) {
                         var result = songsRepository.insert(song);
-                        FluentLogger.log("inserting", result);
+                        OldLogger.log("inserting", result);
                     } else {
                         var result = songsRepository.update(song.getUuid(), song);
-                        FluentLogger.log("updating", result);
+                        OldLogger.log("updating", result);
                     }
                     openParent();
                 })

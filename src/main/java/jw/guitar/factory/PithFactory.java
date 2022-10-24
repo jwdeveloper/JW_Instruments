@@ -1,6 +1,6 @@
 package jw.guitar.factory;
 
-import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_api.logger.OldLogger;
 import lombok.Data;
 
 import java.text.DecimalFormat;
@@ -61,7 +61,7 @@ public class PithFactory {
                 var b = df.format(a);
                 string.append(b).append(" - ");
             }
-            FluentLogger.log(string+" ");
+            OldLogger.log(string+" ");
         }
         return result;
     }

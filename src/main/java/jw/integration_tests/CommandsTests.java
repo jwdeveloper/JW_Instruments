@@ -1,6 +1,6 @@
 package jw.integration_tests;
 
-import jw.spigot_fluent_api_integration_tests.SpigotIntegrationTest;
+import jw.fluent_api_tests_smoke.api.SpigotIntegrationTest;
 
 public class CommandsTests extends SpigotIntegrationTest
 {

@@ -5,7 +5,7 @@ import jw.guitar.builders.chord.ChordBuilder;
 import jw.guitar.chords.Note;
 import jw.guitar.data.Consts;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.minecraft.messages.FluentMessage;
+import jw.fluent_api.spigot.messages.FluentMessage;
 import jw.fluent_api.utilites.math.MathUtility;
 import jw.fluent_api.utilites.messages.Emoticons;
 import org.bukkit.ChatColor;

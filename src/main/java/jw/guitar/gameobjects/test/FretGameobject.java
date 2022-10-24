@@ -1,7 +1,7 @@
 package jw.guitar.gameobjects.test;
 
-import jw.fluent_api.minecraft.gameobjects.api.GameObject;
-import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_api.logger.OldLogger;
+import jw.fluent_api.spigot.gameobjects.api.GameObject;
 import jw.fluent_api.utilites.math.collistions.HitBox;
 import lombok.Getter;
 import org.bukkit.Location;
@@ -125,15 +125,15 @@ public class FretGameobject extends GameObject {
         if (hitBox == null) {
             return false;
         }
-        FluentLogger.success("C");
+        OldLogger.success("C");
         if (!hitBox.isCollider(location, range)) {
             return false;
         }
-        FluentLogger.success("D");
+        OldLogger.success("D");
         for (var note : notes) {
             if (!note.getHitBox().isCollider(location, range))
                 continue;
-            FluentLogger.success("note click", note.toString());
+            OldLogger.success("note click", note.toString());
             note.onPlayerInteraction(player, location);
             return true;
         }

@@ -1,6 +1,6 @@
 package jw.guitar.data;
 
-import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_api.logger.OldLogger;
 import jw.fluent_api.utilites.files.yml.api.annotations.YmlProperty;
 import jw.fluent_api.utilites.java.JavaUtils;
 import lombok.Data;
@@ -28,7 +28,7 @@ public class CustomSkin
         var value = craftingMaterial;
         value = value.toUpperCase();
         value = value.replace(" ","_");
-        FluentLogger.info("skin name",value);
+        OldLogger.info("skin name",value);
         return Material.getMaterial(value);
     }
 }

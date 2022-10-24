@@ -10,10 +10,10 @@ import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.fluent_api.desing_patterns.observer.implementation.ObserverBag;
-import jw.fluent_api.minecraft.gui.button.button_observer.ButtonObserverUI;
-import jw.fluent_api.minecraft.gui.events.ButtonUIEvent;
-import jw.fluent_api.minecraft.gui.implementation.list_ui.ListUI;
-import jw.fluent_api.minecraft.messages.FluentMessage;
+import jw.fluent_api.spigot.gui.button.button_observer.ButtonObserverUI;
+import jw.fluent_api.spigot.gui.events.ButtonUIEvent;
+import jw.fluent_api.spigot.gui.implementation.list_ui.ListUI;
+import jw.fluent_api.spigot.messages.FluentMessage;
 import org.bukkit.Material;
 
 import java.util.List;

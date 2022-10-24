@@ -1,12 +1,12 @@
 package jw.guitar.rhythms;
 
+import jw.fluent_api.logger.OldLogger;
 import jw.guitar.chords.Note;
 import jw.guitar.rhythms.events.NoteEvent;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
 import jw.guitar.rhythms.timeline.Timeline;
-import jw.fluent_api.minecraft.logger.FluentLogger;
-import jw.fluent_api.minecraft.tasks.FluentTaskTimer;
-import jw.fluent_api.minecraft.tasks.FluentTasks;
+import jw.fluent_api.spigot.tasks.FluentTaskTimer;
+import jw.fluent_api.spigot.tasks.FluentTasks;
 
 import java.util.HashSet;
 import java.util.List;
@@ -55,16 +55,16 @@ public class Fingering implements Rhythm {
             isReady = true;
             return;
         }
-        FluentLogger.error("A");
+        OldLogger.error("A");
         if (!isReady) {
             queuedEvent = event;
             return;
         }
-        FluentLogger.error("B");
+        OldLogger.error("B");
         setEvent(event);
         taskTimer = FluentTasks.taskTimer(2, (iteration, task) ->
                 {
-                    FluentLogger.log("Tick", iteration);
+                    OldLogger.log("Tick", iteration);
                     if (timeline.done())
                     {
                         if (queuedEvent != null) {

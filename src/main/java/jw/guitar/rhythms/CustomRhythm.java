@@ -1,14 +1,14 @@
 package jw.guitar.rhythms;
 
+import jw.fluent_api.logger.OldLogger;
 import jw.guitar.builders.rhythm.RhythmModel;
 import jw.guitar.rhythms.events.ChordChangeEvent;
 import jw.guitar.rhythms.events.NoteEvent;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
 import jw.guitar.rhythms.timeline.Timeline;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.IgnoreInjection;
-import jw.fluent_api.minecraft.logger.FluentLogger;
-import jw.fluent_api.minecraft.tasks.FluentTaskTimer;
-import jw.fluent_api.minecraft.tasks.FluentTasks;
+import jw.fluent_api.spigot.tasks.FluentTaskTimer;
+import jw.fluent_api.spigot.tasks.FluentTasks;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -94,7 +94,7 @@ public class CustomRhythm implements Rhythm {
                     }
                     for (var note : timeline.next()) {
                         //Bukkit.getOnlinePlayers().forEach(c -> c.playSound(c.getLocation(),"minecraft:acoustic3",1,1));
-                        FluentLogger.info("Name",getSoundName(note.id(), currentEvent.guitarType()));
+                        OldLogger.info("Name",getSoundName(note.id(), currentEvent.guitarType()));
                         currentEvent
                                 .getWorld()
                                 .playSound(currentEvent.player().getLocation(),

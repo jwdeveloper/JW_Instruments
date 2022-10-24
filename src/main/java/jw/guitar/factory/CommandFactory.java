@@ -1,19 +1,19 @@
 package jw.guitar.factory;
 
+import jw.fluent_api.logger.OldLogger;
+import jw.fluent_plugin.implementation.FluentAPI;
 import jw.guitar.data.PluginPermissions;
 import jw.guitar.gui.GuitarCraftingGui;
 import jw.guitar.gui.songs.SongsListGui;
 import jw.guitar.managers.InstrumentManager;
 import jw.guitar.services.InstrumentService;
-import jw.fluent_api.desing_patterns.dependecy_injection.FluentInjection;
-import jw.fluent_api.minecraft.commands.FluentCommand;
-import jw.fluent_api.minecraft.commands.api.builder.CommandBuilder;
-import jw.fluent_api.minecraft.commands.api.builder.config.ArgumentConfig;
-import jw.fluent_api.minecraft.commands.api.enums.ArgumentDisplay;
-import jw.fluent_api.minecraft.commands.api.enums.ArgumentType;
-import jw.fluent_api.minecraft.commands.implementation.events.PlayerCommandEvent;
-import jw.fluent_api.minecraft.logger.FluentLogger;
-import jw.fluent_api.minecraft.messages.FluentMessage;
+import jw.fluent_api.spigot.commands.FluentCommand;
+import jw.fluent_api.spigot.commands.api.builder.CommandBuilder;
+import jw.fluent_api.spigot.commands.api.builder.config.ArgumentConfig;
+import jw.fluent_api.spigot.commands.api.enums.ArgumentDisplay;
+import jw.fluent_api.spigot.commands.api.enums.ArgumentType;
+import jw.fluent_api.spigot.commands.implementation.events.PlayerCommandEvent;
+import jw.fluent_api.spigot.messages.FluentMessage;
 import org.bukkit.ChatColor;
 
 public class CommandFactory {
@@ -39,7 +39,7 @@ public class CommandFactory {
         {
             eventConfig.onPlayerExecute(event ->
             {
-                var gui = FluentInjection.findPlayerInjection(SongsListGui.class, event.getPlayer());
+                var gui = FluentAPI.spigot().playerContext().find(SongsListGui.class, event.getPlayer());
                 gui.open(event.getPlayer());
             });
         });
@@ -62,7 +62,7 @@ public class CommandFactory {
             eventConfig.onPlayerExecute(event ->
             {
                 var name = event.getArgs()[1];
-                FluentLogger.log("Name", name);
+                OldLogger.log("Name", name);
                 var guitar = guitarService.getByName(name);
                 if (guitar.isEmpty()) {
                     FluentMessage.message()
@@ -98,7 +98,7 @@ public class CommandFactory {
                         {
                             eventConfig.onPlayerExecute(event ->
                             {
-                                var gui = FluentInjection.findPlayerInjection(GuitarCraftingGui.class, event.getPlayer());
+                                var gui = FluentAPI.spigot().playerContext().find(GuitarCraftingGui.class, event.getPlayer());
                                 gui.open(event.getPlayer());
                             });
                         });

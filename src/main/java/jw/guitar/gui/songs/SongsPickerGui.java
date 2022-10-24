@@ -5,7 +5,7 @@ import jw.guitar.data.songs.SongsRepository;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_api.minecraft.gui.implementation.list_ui.ListUI;
+import jw.fluent_api.spigot.gui.implementation.list_ui.ListUI;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 

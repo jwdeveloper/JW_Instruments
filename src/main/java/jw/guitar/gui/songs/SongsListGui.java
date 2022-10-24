@@ -1,14 +1,13 @@
 package jw.guitar.gui.songs;
 
+import jw.fluent_api.logger.OldLogger;
 import jw.guitar.data.PluginPermissions;
 import jw.guitar.data.songs.Song;
 import jw.guitar.data.songs.SongsRepository;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_api.minecraft.gui.implementation.crud_list_ui.CrudListUI;
-import jw.fluent_api.minecraft.logger.FluentLogger;
-import jw.fluent_plugin.default_actions.implementation.languages.Lang;
+import jw.fluent_api.spigot.gui.implementation.crud_list_ui.CrudListUI;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 
@@ -76,7 +75,7 @@ public class SongsListGui extends CrudListUI<Song> {
         });
         onListOpen(player ->
         {
-            FluentLogger.log("Repo", repository.findAll().size() + " ");
+            OldLogger.log("Repo", repository.findAll().size() + " ");
             refreshContent();
         });
 
@@ -88,7 +87,7 @@ public class SongsListGui extends CrudListUI<Song> {
         addSearchStrategy("By author",event ->
         {
             var res = event.data().getAuthor().contains(event.searchKey());;
-            FluentLogger.log("Search",event.data().getAuthor(), event.searchKey(), res);
+            OldLogger.log("Search",event.data().getAuthor(), event.searchKey(), res);
             return res;
         });
     }

@@ -4,9 +4,9 @@ import jw.guitar.data.Consts;
 import jw.guitar.plugin_setup.ChordSetup;
 import jw.guitar.plugin_setup.CommandSetup;
 import jw.guitar.plugin_setup.GuitarSetup;
-import jw.fluent_plugin.FluentPlugin;
-import jw.fluent_plugin.config.ConfigFile;
-import jw.fluent_plugin.starup_actions.api.PluginConfiguration;
+import jw.fluent_plugin.implementation.FluentPlugin;
+import jw.fluent_plugin.implementation.config.ConfigFile;
+import jw.fluent_plugin.api.PluginConfiguration;
 
 public final class Main extends FluentPlugin {
 

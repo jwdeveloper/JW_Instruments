@@ -1,7 +1,7 @@
 package jw.guitar.data.songs;
 
-import jw.fluent_api.desing_patterns.unit_of_work.api.models.DataModel;
-import jw.fluent_api.minecraft.messages.FluentMessage;
+import jw.fluent_api.files.api.models.DataModel;
+import jw.fluent_api.spigot.messages.FluentMessage;
 import jw.fluent_api.utilites.java.JavaUtils;
 import jw.fluent_api.utilites.messages.Emoticons;
 import lombok.Data;

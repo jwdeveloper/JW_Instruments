@@ -1,8 +1,8 @@
 package jw.guitar.factory;
 
-import jw.fluent_api.minecraft.gui.InventoryUI;
-import jw.fluent_api.minecraft.gui.button.ButtonUI;
-import jw.fluent_api.minecraft.gui.button.ButtonUIBuilder;
+import jw.fluent_api.spigot.gui.InventoryUI;
+import jw.fluent_api.spigot.gui.button.ButtonUI;
+import jw.fluent_api.spigot.gui.button.ButtonUIBuilder;
 import org.bukkit.Material;
 
 import java.util.ArrayList;

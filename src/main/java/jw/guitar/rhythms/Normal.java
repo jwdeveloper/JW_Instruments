@@ -3,7 +3,7 @@ package jw.guitar.rhythms;
 
 import jw.guitar.rhythms.events.NoteEvent;
 import jw.guitar.rhythms.events.PlayingStyleEvent;
-import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_api.logger.OldLogger;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -47,7 +47,7 @@ public class Normal implements Rhythm {
                     getSoundName(note.id(),event.guitarType()),
                     3,
                     note.pitch());
-            FluentLogger.log("note",getSoundName(note.id(),event.guitarType()),
+            OldLogger.log("note",getSoundName(note.id(),event.guitarType()),
                     "id",
                     note.id(),
                     "fret",

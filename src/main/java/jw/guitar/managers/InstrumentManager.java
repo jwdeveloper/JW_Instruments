@@ -1,14 +1,14 @@
 package jw.guitar.managers;
 
 
+import jw.fluent_api.logger.OldLogger;
 import jw.guitar.chords.Chord;
 import jw.guitar.gameobjects.InstrumentPlayer;
 import jw.guitar.gameobjects.instuments.Instrument;
 import jw.guitar.services.InstrumentDataService;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.minecraft.gameobjects.implementation.GameObjectManager;
-import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_api.spigot.gameobjects.implementation.GameObjectManager;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -51,7 +51,7 @@ public class InstrumentManager
         }
         var data = instrumentDataService.get(itemStack);
         if (data.isEmpty()) {
-            FluentLogger.error("Unable to load instrument for item: " + itemStack.toString());
+            OldLogger.error("Unable to load instrument for item: " + itemStack.toString());
             return;
         }
         var instrumentData = data.get();
@@ -64,11 +64,11 @@ public class InstrumentManager
 
 
         if (!GameObjectManager.register(go, loc)) {
-            FluentLogger.error("Unable to create instance of instrument: " + itemStack.toString());
+            OldLogger.error("Unable to create instance of instrument: " + itemStack.toString());
             return;
         }
         instrumentPlayers.put(player.getUniqueId(), go);
-        FluentLogger.log("Registered", go);
+        OldLogger.log("Registered", go);
     }
 
     public void unregister(Player player) {
@@ -79,7 +79,7 @@ public class InstrumentManager
         go.onDestroy();
         GameObjectManager.unregister(go);
         instrumentPlayers.remove(player.getUniqueId());
-        FluentLogger.log("Unregistered", go);
+        OldLogger.log("Unregistered", go);
     }
 
     public boolean validatePlayer(Player player) {

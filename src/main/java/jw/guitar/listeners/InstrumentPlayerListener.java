@@ -3,8 +3,8 @@ package jw.guitar.listeners;
 import jw.guitar.managers.InstrumentManager;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.minecraft.events.EventBase;
-import jw.fluent_api.minecraft.logger.FluentLogger;
+import jw.fluent_api.spigot.events.EventBase;
+import jw.fluent_api.logger.OldLogger;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -87,7 +87,7 @@ public class InstrumentPlayerListener extends EventBase {
     @EventHandler
     public void onEvent(InventoryEvent event)
     {
-        FluentLogger.log(event.toString()+" GOOD EVENZ");
+        OldLogger.log(event.toString()+" GOOD EVENZ");
     }
 
     @EventHandler

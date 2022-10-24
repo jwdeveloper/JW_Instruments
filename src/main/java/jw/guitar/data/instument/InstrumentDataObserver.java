@@ -1,8 +1,8 @@
 package jw.guitar.data.instument;
 
 import jw.fluent_api.desing_patterns.observer.implementation.ObserverBag;
-import jw.fluent_api.minecraft.gui.InventoryUI;
-import jw.fluent_plugin.FluentPlugin;
+import jw.fluent_api.spigot.gui.InventoryUI;
+import jw.fluent_plugin.implementation.FluentPlugin;
 import lombok.Data;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;

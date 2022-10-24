@@ -1,14 +1,13 @@
 package jw.guitar.plugin_setup;
 
+import jw.fluent_plugin.api.PluginAction;
 import jw.guitar.chords.Chord;
 import jw.guitar.builders.chord.ChordBuilder;
 import jw.guitar.data.Consts;
 import jw.guitar.services.ChordService;
-import jw.fluent_api.desing_patterns.dependecy_injection.FluentInjection;
-import jw.fluent_api.minecraft.logger.FluentLogger;
-import jw.fluent_plugin.FluentPlugin;
-import jw.fluent_plugin.starup_actions.api.PluginPipeline;
-import jw.fluent_plugin.starup_actions.data.PipelineOptions;
+import jw.fluent_api.logger.OldLogger;
+import jw.fluent_plugin.implementation.FluentPlugin;
+import jw.fluent_plugin.api.options.PipelineOptions;
 import jw.fluent_api.utilites.files.json.JsonUtility;
 import jw.fluent_api.utilites.java.JavaUtils;
 import lombok.Data;
@@ -16,7 +15,7 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChordSetup implements PluginPipeline {
+public class ChordSetup implements PluginAction {
 
 
     @Override
@@ -42,7 +41,7 @@ public class ChordSetup implements PluginPipeline {
             var stringId = Consts.STRINGS -1-i;
             if(chordDto.getKey().equals("E") && chordDto.getSuffix().equals("minor"))
             {
-                FluentLogger.log("finger",finger,"StringID",stringId);
+                OldLogger.log("finger",finger,"StringID",stringId);
             }
             if(finger == 0)
             {

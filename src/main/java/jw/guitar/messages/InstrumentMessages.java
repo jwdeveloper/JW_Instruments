@@ -1,7 +1,7 @@
 package jw.guitar.messages;
 
 import jw.guitar.rhythms.Rhythm;
-import jw.fluent_api.minecraft.messages.FluentMessage;
+import jw.fluent_api.spigot.messages.FluentMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
