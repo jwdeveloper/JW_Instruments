@@ -1,0 +1,27 @@
+gui:
+  base:
+    insert:
+      title: 추가
+    delete:
+      title: 삭제
+    edit:
+      title: 수정
+    search:
+      title: 찾기
+    page-up:
+      title: 다음 페이지
+    page-down:
+      title: 이전 페이지
+    exit:
+      title: 나가기
+    back:
+      title: 돌아가기
+    value: 값
+    active: 활성
+    inactive: 비활성
+    state: 상태
+
+permissions:
+  one-required: 이하의 권한이 최소 한개는 있어야 합니다
+  all-required: 권한이 있어야 합니다
+  incorrect-number-of-arguments: 값에 오류가 있습니다

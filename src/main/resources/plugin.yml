@@ -1,4 +1,86 @@
-name: JW_Guitar
+name: JW_Instruments
 version: '${project.version}'
-main: jw.guitar.Main
+main: jw.instruments.Main
 api-version: 1.17
+permissions:
+
+  instrument:
+    default: op
+    children:
+      - instrument.play
+      - instrument.command
+      - instrument.command.instrument
+      - instrument.command.get
+      - instrument.command.songs
+      - instrument.gui
+      - instrument.gui.instrument
+      - instrument.gui.instrument.volume
+      - instrument.gui.instrument.rhythm.change
+      - instrument.gui.instrument.chords.display
+      - instrument.gui.instrument.song.import
+      - instrument.gui.instrument.song.export
+      - instrument.gui.instrument.chords
+      - instrument.gui.songs
+      - instrument.gui.songs.insert
+      - instrument.gui.songs.edit
+      - instrument.gui.songs.delete
+
+    description: General permission
+
+  instrument.play:
+    description: Enable to play on instruments
+    default: true
+
+  instrument.command:
+    description: General permission
+
+  instrument.command.instrument:
+    description: /instrument (opens instrument gui)
+    default: true
+
+  instrument.command.get:
+    description: /instrument get (pick your instrument)
+
+  instrument.command.songs:
+    description: /instrument songs (opens songs gui)
+
+  instrument.gui:
+    description: General permission
+
+  instrument.gui.instrument:
+    description: General permission
+    default: true
+
+  instrument.gui.instrument.volume:
+    description: Change volume button
+    default: true
+
+  instrument.gui.instrument.rhythm.change:
+    description: Change rhythm on shift press ON/OFF button
+    default: true
+
+  instrument.gui.instrument.chords.display:
+    description: Display chords above inventory bar ON/OFF button
+    default: true
+
+  instrument.gui.instrument.song.import:
+    description: Importing chords from a song
+    default: true
+
+  instrument.gui.instrument.song.export:
+    description: Exporting chords to new song
+
+  instrument.gui.instrument.chords:
+    description: Enable Editing chords in instrument GUI
+
+  instrument.gui.songs:
+    description: General permission
+
+  instrument.gui.songs.insert:
+    description: Enable to insert new song
+
+  instrument.gui.songs.edit:
+    description: Enable to edit song
+
+  instrument.gui.songs.delete:
+    description: Enable to delete song

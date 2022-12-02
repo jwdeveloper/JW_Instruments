@@ -1,0 +1,27 @@
+gui:
+  base:
+    insert:
+      title: Dodaj
+    delete:
+      title: Usuń
+    edit:
+      title: Edytuj
+    search:
+      title: Szukaj
+    page-up:
+      title: Następna strona
+    page-down:
+      title: Poprzednia strona
+    exit:
+      title: Wyjście
+    back:
+      title: Confnij
+    value: wartość
+    active: aktywne
+    inactive: nieaktywne
+    state: stan
+
+permissions:
+      one-required: Musisz posiadać jedną z tych permisji
+      all-required: Musisz mieć te permisje
+      incorrect-number-of-arguments: Zła ilość argumentów, powinno być,
