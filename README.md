@@ -4,7 +4,7 @@
 
 #  [Information]   General info about plugin and author
 #  [Commands]      Command, arguments, command permissions
-#  [Permissions]   Permissions and reactions between then
+#  [Permissions]   Permissions and reactions between them
 #  [License]       Plugin license
 
 # Be aware modifications of this file has NO impact on plugin
@@ -34,12 +34,12 @@ commands-tree:
 
 
 commands:
-#========================= disable =========================
+#================================================== disable ===========================================
     disable:
       description: disable all plugin without restarting server
       usage: Can be use only with Console
 
-#========================= instrument =========================
+#================================================== instrument ========================================
     instrument:
       children:
         - lang
@@ -49,7 +49,7 @@ commands:
         - update
       permissions:
         - instrument.commands.instrument
-#========================= lang =========================
+#================================================== lang ==============================================
     lang:
       permissions:
         - instrument.commands.lang
@@ -63,12 +63,12 @@ commands:
                 - pl
       short-description: /instrument lang [en,pl,kr...]  (Change language of plugin)
 
-#========================= songs =========================
+#================================================== songs =============================================
     songs:
       permissions:
         - instrument.commands.songs
 
-#========================= get =========================
+#================================================== get ===============================================
     get:
       permissions:
         - instrument.commands.get
@@ -78,13 +78,13 @@ commands:
             description: select guitar type
             options:
                 - acoustic
-                - classical
                 - electric
+                - classical
 
-#========================= resourcepack =========================
+#================================================== resourcepack ======================================
     resourcepack:
 
-#========================= update =========================
+#================================================== update ============================================
     update:
       permissions:
         - instrument.commands.update
@@ -96,7 +96,7 @@ commands:
 #                                                   Permissions                                                   
 #====================================================================================================
 permissions:
-#========================= plugin =========================
+#================================================== plugin ============================================
     instrument:
       description: Default permission for plugin
       children:
@@ -111,7 +111,7 @@ permissions:
     instrument.song.no-limit:
       description: Unlimited amount of songs player can create it also includes [song export]
 
-#========================= commands =========================
+#================================================== commands ==========================================
     commands:
       description: Default permission for commands
       children:
@@ -138,7 +138,7 @@ permissions:
     instrument.commands.songs:
       description: /instrument songs (opens songs gui)
 
-#========================= gui =========================
+#================================================== gui ===============================================
     gui:
       description: Default permission for gui
       children:
@@ -154,7 +154,7 @@ permissions:
         - instrument.gui.songs.edit
         - instrument.gui.songs.delete
 
-#========================= gui [Instrument] =========================
+#================================================== gui [Instrument] ==================================
     instrument.gui.instrument:
       description: Instrument gui
 
@@ -176,7 +176,7 @@ permissions:
     instrument.gui.instrument.chords:
       description: Enable Editing chords in instrument GUI
 
-#========================= gui [Songs] =========================
+#================================================== gui [Songs] =======================================
     instrument.gui.songs:
       description: Songs GUI
 
@@ -188,5 +188,7 @@ permissions:
 
     instrument.gui.songs.delete:
       description: Enable to delete song
+
+
 
 ``` 
