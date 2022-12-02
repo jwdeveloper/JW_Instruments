@@ -1,28 +1,27 @@
+
+> Thank you for using plugin! I believe it gives you much fun
+ Documentation is divided to few sections
+
+  - <B>[Information](#Information)</b>   General info about plugin and author 
+  - <B>[Commands](#Commands)</b>      Command, arguments, command permissions
+  - <B>[Permissions](#Permissions)</b>   Permissions and reactions between them
+  - <B>[License](#License)</b>      Plugin license
+
+>Be aware modifications of this file has NO impact on plugin
+ To change plugin behaviour edit config.yml file
+
+## Information                                                   
 ``` yaml
-# Thank you for using plugin! I believe it gives you much fun
-# Documentation is divided to few sections
-
-#  [Information]   General info about plugin and author
-#  [Commands]      Command, arguments, command permissions
-#  [Permissions]   Permissions and reactions between them
-#  [License]       Plugin license
-
-# Be aware modifications of this file has NO impact on plugin
-# To change plugin behaviour edit config.yml file
-
-#====================================================================================================
-#                                                   Information                                                   
-#====================================================================================================
 information:
   author: JW
   spigot-url: https://www.facebook.com/
   github-url: https://www.facebook.com/
   report-bug: https://www.facebook.com/
 
+```
 
-#====================================================================================================
-#                                                   Commands                                                   
-#====================================================================================================
+##  Commands                                                   
+``` yaml
 commands-tree:
     disable:
     instrument:
@@ -34,7 +33,7 @@ commands-tree:
 
 
 commands:
-#================================================== disable ===========================================
+#============================= disable ==================================
     disable:
       description: disable all plugin without restarting server
       usage: Can be use only with Console
@@ -88,13 +87,13 @@ commands:
     update:
       permissions:
         - instrument.commands.update
+```
 
 
 
 
-#====================================================================================================
-#                                                   Permissions                                                   
-#====================================================================================================
+##  Permissions                                                   
+``` yaml
 permissions:
 #================================================== plugin ============================================
     instrument:
@@ -188,7 +187,4 @@ permissions:
 
     instrument.gui.songs.delete:
       description: Enable to delete song
-
-
-
 ``` 
