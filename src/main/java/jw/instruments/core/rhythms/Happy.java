@@ -2,6 +2,7 @@ package jw.instruments.core.rhythms;
 
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
 import jw.instruments.core.rhythms.events.PlayingStyleEvent;
 
 import java.util.ArrayList;
@@ -29,13 +30,14 @@ public class Happy implements Rhythm {
 
     @Override
     public void play(PlayingStyleEvent event) {
+        float volume = (event.volume()/100f);
         if (event.leftClick())
         {
-            play(event,left.next(),1.6f);
+            play(event,left.next(),volume*1.6f);
         }
         else
         {
-            play(event,right.next(),0.7f);
+            play(event,right.next(),volume*0.7f);
         }
     }
 
@@ -46,6 +48,7 @@ public class Happy implements Rhythm {
             var notes = event.chord().notes().stream().filter(c -> c.id() == sound).toList();
             for(var note : notes)
             {
+
                 event.getWorld().playSound(event.getLocation(),
                         getSoundName(note.id(),event.guitarType()),
                         volume,

@@ -37,16 +37,6 @@ public class RhythmService {
         return currentStyle();
     }
 
-    public void playNoise(Player player, String sound) {
-        new Normal().play(
-                new PlayingStyleEvent(
-                        player,
-                        chordService.generateRandomNoise(),
-                        true,
-                        sound,
-                        1));
-    }
-
     public Rhythm currentStyle() {
         return playingStyles.get(current);
     }

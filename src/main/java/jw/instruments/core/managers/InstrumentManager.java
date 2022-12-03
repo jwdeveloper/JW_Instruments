@@ -2,10 +2,9 @@ package jw.instruments.core.managers;
 
 
 import jw.fluent_plugin.implementation.FluentApi;
-import jw.instruments.core.data.chords.Chord;
-import jw.instruments.core.services.InstrumentDataService;
+import jw.fluent_plugin.implementation.modules.player_context.implementation.FluentPlayerContext;
+import jw.instruments.core.services.InstrumentItemStackFactory;
 import jw.instruments.spigot.gameobjects.InstrumentPlayer;
-import jw.instruments.spigot.gameobjects.factory.InstrumentPlayerFactory;
 import jw.instruments.core.instuments.Instrument;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
@@ -18,58 +17,50 @@ import java.util.Map;
 import java.util.UUID;
 
 @Injection
-public class InstrumentManager
-{
+public class InstrumentManager {
     private final Map<UUID, InstrumentPlayer> instrumentPlayers;
-    private final InstrumentDataService instrumentDataService;
+    private final InstrumentItemStackFactory instrumentDataService;
+    private final FluentPlayerContext playerContext;
 
     @Inject
-    public InstrumentManager(InstrumentDataService service)
-    {
+    public InstrumentManager(InstrumentItemStackFactory service, FluentPlayerContext playerContext) {
         this.instrumentDataService = service;
+        this.playerContext = playerContext;
         instrumentPlayers = new HashMap<>();
     }
 
 
-    public InstrumentPlayer get(Player player)
-    {
-        if(!validatePlayer(player))
-        {
+    public InstrumentPlayer get(Player player) {
+        if (!validatePlayer(player)) {
             return null;
         }
 
         return get(player.getUniqueId());
     }
 
-    public InstrumentPlayer get(UUID uuid)
-    {
+    public InstrumentPlayer get(UUID uuid) {
         return instrumentPlayers.get(uuid);
     }
+
+
 
     public void register(Player player, ItemStack itemStack) {
         if (validatePlayer(player)) {
             unregister(player);
         }
-        var data = instrumentDataService.get(itemStack);
-        if (data.isEmpty()) {
+        var optional = instrumentDataService.create(itemStack);
+        if (optional.isEmpty()) {
             FluentApi.logger().error("Unable to load instrument for item: " + itemStack.toString());
             return;
         }
-        var instrumentData = data.get();
-        final var go = InstrumentPlayerFactory.create(player, instrumentData);
-
-        var loc = player.getLocation().clone();
-        loc.add(loc.getDirection().multiply(4));
-        loc.setPitch(0);
-        loc.setYaw(0);
-
-
-        if (!GameObjectManager.register(go, loc)) {
+        var instrumentData = optional.get();
+        var gameObject = playerContext.find(InstrumentPlayer.class, player);
+        gameObject.setInstrument(instrumentData);
+        if (!GameObjectManager.register(gameObject, player.getLocation())) {
             FluentApi.logger().error("Unable to create instance of instrument: " + itemStack.toString());
             return;
         }
-        instrumentPlayers.put(player.getUniqueId(), go);
-        FluentApi.logger().log("Registered", go);
+        instrumentPlayers.put(player.getUniqueId(), gameObject);
     }
 
     public void unregister(Player player) {
@@ -80,7 +71,6 @@ public class InstrumentManager
         go.onDestroy();
         GameObjectManager.unregister(go);
         instrumentPlayers.remove(player.getUniqueId());
-        FluentApi.logger().log("Unregistered", go);
     }
 
     public boolean validatePlayer(Player player) {
@@ -93,7 +83,5 @@ public class InstrumentManager
         return Instrument.isInstrument(itemStack);
     }
 
-    public boolean validateChord(ItemStack itemStack) {
-        return Chord.isChord(itemStack);
-    }
+
 }

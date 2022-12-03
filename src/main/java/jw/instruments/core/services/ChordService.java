@@ -101,11 +101,11 @@ public class ChordService {
         var names = new ArrayList<String>();
         names.add("A minor");
         names.add("C major");
-        names.add("G major");
+        names.add("D major");
         names.add("F major");
         names.add("E major");
-        names.add("D major");
-        names.add("E minor");
+        names.add("G major");
+        names.add("A major");
         var result = new ArrayList<Chord>();
         for (var name : names) {
             result.add(find(name));
@@ -121,11 +121,10 @@ public class ChordService {
     public Chord generateRandomNoise() {
         var builder = ChordBuilder.create("noise");
         for (var i = 0; i < MathUtility.getRandom(3, 10); i++) {
-
             var bar = MathUtility.getRandom(0, 10);
             var note = MathUtility.getRandom(0, 5);
             var sound = MathUtility.getRandom(10, 200);
-            builder.addNote(bar, note, sound * 0.01f);
+            builder.addNote(bar, note, sound * 0.1f);
         }
         return builder.build();
     }

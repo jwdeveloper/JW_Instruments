@@ -1,6 +1,5 @@
 package jw.instruments;
 
-import jw.fluent_api.spigot.permissions.implementation.PermissionsUtility;
 import jw.fluent_plugin.api.FluentApiBuilder;
 import jw.fluent_plugin.implementation.FluentApi;
 import jw.fluent_plugin.implementation.FluentPlugin;
@@ -11,7 +10,7 @@ import jw.instruments.core.instuments.Instrument;
 import jw.instruments.core.extentions.ChordExtention;
 import jw.instruments.core.extentions.CommandExtention;
 import jw.instruments.core.extentions.GuitarExtention;
-import org.bukkit.Bukkit;
+
 
 public final class Main extends FluentPlugin {
 
@@ -29,7 +28,7 @@ public final class Main extends FluentPlugin {
         container.addPlayerContext();
         container.addUpdater(updaterOptions ->
         {
-              updaterOptions.setGithub("https://github.com/jwdeveloper/JW_Piano/releases/download/1.1.3/JW_Piano.jar");
+              updaterOptions.setGithub(Consts.UPDATE_URL);
         });
         builder.command().setName(Consts.PLUGIN_NAMESPACE);
 
@@ -41,16 +40,13 @@ public final class Main extends FluentPlugin {
         {
             updaterOptions.setPermissionModel(PluginPermissions.class);
         });
-        builder.permissions().setBasePermission(PluginPermissions.PLUGIN);
+        builder.permissions().setBasePermissionName(PluginPermissions.PLUGIN);
     }
 
     @Override
     public void onFluentApiEnable(FluentApi fluentAPI) {
-        fluentAPI.getFluentLogger().info("Server permissions", fluentAPI.getFluentPermission().getPermissions().size());
-        for(var p : Bukkit.getOnlinePlayers())
-        {
-            PermissionsUtility.showPlayerPermissions(p);
-        }
+
+
     }
 
     @Override

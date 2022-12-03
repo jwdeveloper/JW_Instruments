@@ -1,10 +1,16 @@
 package jw.instruments.spigot.gameobjects;
 
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent_api.player_context.api.PlayerContext;
 import jw.fluent_api.spigot.permissions.implementation.PermissionsUtility;
 import jw.fluent_plugin.implementation.FluentApi;
+import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
+import jw.fluent_plugin.implementation.modules.player_context.api.FluentPlayer;
 import jw.instruments.core.data.Consts;
 import jw.instruments.core.data.PluginPermissions;
-import jw.instruments.core.data.instument.InstrumentDataObserver;
+import jw.instruments.core.data.instrument.InstrumentItemStack;
+import jw.instruments.core.data.instrument.InstrumentItemStackObserver;
 import jw.instruments.core.services.ChordService;
 import jw.instruments.spigot.messages.InstrumentMessages;
 import jw.instruments.spigot.gui.InstrumentViewGui;
@@ -14,32 +20,47 @@ import jw.instruments.core.services.RhythmService;
 import jw.fluent_api.spigot.gameobjects.api.GameObject;
 import jw.fluent_api.spigot.messages.FluentMessage;
 import jw.fluent_api.utilites.messages.Emoticons;
-import lombok.Setter;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 
+@PlayerContext
+@Injection
 public class InstrumentPlayer extends GameObject {
     private RhythmService rhythmService;
     private PlayerChordManager chordManager;
-    @Setter
-    private Player player;
-    @Setter
-    private InstrumentDataObserver data;
+    private InstrumentItemStackObserver instrumentObserver;
+    private FluentPlayer fluentPlayer;
+    @Inject
+    public InstrumentPlayer(RhythmService rhythmService,
+                            PlayerChordManager chordManager,
+                            InstrumentItemStackObserver instrumentObserver,
+                            FluentPlayer player)
+
+    {
+        this.rhythmService = rhythmService;
+        this.chordManager = chordManager;
+        this.instrumentObserver = instrumentObserver;
+        this.fluentPlayer =player;
+    }
+
+    public void setInstrument(InstrumentItemStack instrument)
+    {
+        instrumentObserver.setInstrument(instrument);
+        sendInfoMessage();
+    }
 
     @Override
     public void onCreated() {
-        rhythmService = FluentApi.injection().findInjection(RhythmService.class);
-        chordManager = FluentApi.injection().findInjection(PlayerChordManager.class);
-        chordManager.setDataObserver(data);
-        setDefaultChords();
-        sendInfoMessage();
+        chordManager.setDataObserver(instrumentObserver);
+
     }
 
     public void changeChord(int slot)
     {
         chordManager.setCurrentSlot(slot);
-        if(data.getDisplayChordsName().get())
+        if(instrumentObserver.getDisplayChordsName().get())
         {
             displayChordsName();
         }
@@ -64,31 +85,34 @@ public class InstrumentPlayer extends GameObject {
                 msg.text(name);
             msg.text(" ",start);
         }
-        msg.sendActionBar(player);
+        msg.sendActionBar(fluentPlayer.get());
     }
 
 
     public void playChord(boolean leftClick) {
-        if(!PermissionsUtility.hasOnePermission(player, PluginPermissions.PLAY))
+
+        if(!PermissionsUtility.hasOnePermission(fluentPlayer.get(), PluginPermissions.PLAY))
         {
             return;
         }
+
         var chord =  chordManager.getCurrentChord();
         if(chord == null)
         {
             return;
         }
+
         rhythmService.currentStyle()
-                .play(new PlayingStyleEvent(player,
+                .play(new PlayingStyleEvent(fluentPlayer.get(),
                         chord,
                         leftClick,
-                        data.getInstumentName().get(),
-                        data.getVolume().get()));
+                        instrumentObserver.getInstrumentName(),
+                        instrumentObserver.getVolume().get()));
     }
 
-    public void changeStyle() {
+    public void changeStyle(Player player) {
 
-        if(!data.getChangeRhytmOnShift().get())
+        if(!instrumentObserver.getChangeRhytmOnShift().get())
         {
             return;
         }
@@ -101,30 +125,20 @@ public class InstrumentPlayer extends GameObject {
 
     }
 
-    public void makeNoise() {
-        rhythmService.playNoise(player, data.getInstumentName().get());
-    }
-
     public void openGUI() {
         FluentApi.spigot()
                 .playerContext()
-                .find(InstrumentViewGui.class, player)
-                .open(player, data);
+                .find(InstrumentViewGui.class, fluentPlayer.get())
+                .open(fluentPlayer.get(), instrumentObserver);
     }
 
 
-    private void setDefaultChords()
-    {
-        ChordService chordService= FluentApi.injection().findInjection(ChordService.class);
-        var names =  chordService.getDefaultChords().stream().map(c -> c.fullName()).toList();
-        for(var i=0;i<names.size();i++)
-        {
-            data.setChord(i,names.get(i));
-        }
-    }
+
 
     private void sendInfoMessage()
     {
+        var player = fluentPlayer.get();
+        player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_GENERIC,1,1);
         FluentMessage.message()
                 .info()
                 .text("Use ", ChatColor.GRAY)

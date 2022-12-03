@@ -11,7 +11,7 @@ import jw.fluent_api.spigot.inventory_gui.implementation.list_ui.ListUI;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 @PlayerContext
-@Injection(lifeTime = LifeTime.SINGLETON)
+@Injection(lifeTime = LifeTime.TRANSIENT)
 public class SongsPickerGui extends ListUI<Song> {
     private final SongsRepository repository;
     private final FluentTranslator lang;
@@ -41,5 +41,11 @@ public class SongsPickerGui extends ListUI<Song> {
                 refreshContent();
             });
         });
+
+        onListOpen(player ->
+        {
+            refreshContent();
+        });
+
     }
 }

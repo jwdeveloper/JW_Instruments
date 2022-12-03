@@ -4,8 +4,10 @@ package jw.instruments.core.rhythms;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.fluent_plugin.implementation.FluentApi;
+import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
 import jw.instruments.core.rhythms.events.NoteEvent;
 import jw.instruments.core.rhythms.events.PlayingStyleEvent;
+import org.bukkit.Sound;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -51,14 +53,14 @@ public class Normal implements Rhythm {
                     getSoundName(note.id(),event.guitarType()),
                     volume,
                     note.pitch());
-            FluentApi.logger().log("note",getSoundName(note.id(),event.guitarType()),
-                    "id",
-                    note.id(),
-                    "fret",
-                    event.chord().fret(),
-                    "Pith",note.pitch());
             emitEvent(new NoteEvent(note));
         }
+
+        event.getWorld().playSound(
+                event.getLocation(),
+                Sound.ITEM_ARMOR_EQUIP_GENERIC,
+                volume,
+               3);
     }
 
     protected void up(PlayingStyleEvent event)

@@ -6,7 +6,7 @@ import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
 import jw.fluent_plugin.implementation.modules.translator.FluentTranslator;
 import jw.instruments.core.data.PluginPermissions;
 import jw.instruments.core.data.chords.Chord;
-import jw.instruments.core.data.instument.InstrumentDataObserver;
+import jw.instruments.core.data.instrument.InstrumentItemStackObserver;
 import jw.instruments.core.data.songs.Song;
 import jw.instruments.core.factory.ButtonsFactory;
 import jw.instruments.spigot.gui.songs.SongsFormGui;
@@ -35,7 +35,7 @@ public class InstrumentViewGui extends ChestUI {
     private final ChordPickerGui chordPickerGui;
     private final ChordService chordService;
     private Map<Integer, ButtonUI> chordsButtons;
-    private InstrumentDataObserver instrumentData;
+    private InstrumentItemStackObserver instrumentData;
     private FluentTranslator lang;
 
     @Inject
@@ -54,7 +54,7 @@ public class InstrumentViewGui extends ChestUI {
         this.lang = lang;
     }
 
-    public void open(Player player, InstrumentDataObserver instrumentData) {
+    public void open(Player player, InstrumentItemStackObserver instrumentData) {
         this.instrumentData = instrumentData;
         open(player);
     }
@@ -109,21 +109,21 @@ public class InstrumentViewGui extends ChestUI {
                 }).buildAndAdd(this);
 
         ButtonObserverUI.factory()
-                .boolObserver(instrumentData.getDisplayChordsName().getObserver())
+                .boolObserver(instrumentData.getDisplayChordsName())
                 .setLocation(3,1)
                 .setPermissions(PluginPermissions.INSTRUMENT_GUI_DISPLAY_CHORDS)
                 .setTitlePrimary(lang.get("gui.instrument.chords.title"))
                 .buildAndAdd(this);
 
         ButtonObserverUI.factory()
-                .boolObserver(instrumentData.getChangeRhytmOnShift().getObserver())
+                .boolObserver(instrumentData.getChangeRhytmOnShift())
                 .setLocation(3,2)
                 .setPermissions(PluginPermissions.INSTRUMENT_GUI_RHYTHM_CHANGE)
                 .setTitlePrimary(lang.get("gui.instrument.rhythm.title"))
                 .buildAndAdd(this);
 
         ButtonObserverUI.factory()
-                .intRangeObserver(instrumentData.getVolume().getObserver(),0,100,10)
+                .intRangeObserver(instrumentData.getVolume(),0,100,10)
                 .setLocation(3,3)
                 .setPermissions(PluginPermissions.INSTRUMENT_GUI_VOLUME)
                 .setTitlePrimary(lang.get("gui.instrument.volume.title"))

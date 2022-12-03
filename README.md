@@ -1,14 +1,13 @@
 
 > Thank you for using plugin! I believe it gives you much fun
- Documentation is divided to few sections
+> Be aware modifications of this file has NO impact on plugin
+  To change plugin behaviour edit config.yml file
 
   - <B>[Information](#Information)</b>   General info about plugin and author 
   - <B>[Commands](#Commands)</b>      Command, arguments, command permissions
   - <B>[Permissions](#Permissions)</b>   Permissions and reactions between them
   - <B>[License](#License)</b>      Plugin license
 
->Be aware modifications of this file has NO impact on plugin
- To change plugin behaviour edit config.yml file
 
 ## Information                                                   
 ``` yaml

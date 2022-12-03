@@ -28,8 +28,6 @@ public interface Instrument {
 
 
     static boolean isInstrument(ItemStack itemStack) {
-
-
         if(itemStack == null)
             return false;
         if(itemStack.getItemMeta() == null)
