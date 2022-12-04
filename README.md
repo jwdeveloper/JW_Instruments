@@ -1,15 +1,8 @@
 
 ![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/banner_plugin.jpg)
 
-
-<p float="center">
-  <img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png"  />
-  <img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png"  />
-   <a href="https://www.Youtube.com/"> <img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png"  /></a>
-   
-</p>
-
-
+<p align="center">
+<a href="https://discord.gg/2hu6fPPeF7"><img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png"  /></a><a href="https://github.com/jwdeveloper/JW_Instruments"><img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png"  /></a><a href="https://www.spigotmc.org/members/jacekwoln.869774/"><img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/spigot.png"  /></a></p>
 
 If you are looking a plugin to enrich server experience this is the solution. Plugin adds bunch of instruments each of them is playable with all possible chords you can imagine. Therefore consider to use this plugin especially on RolePlay server
 
@@ -79,20 +72,15 @@ commands:
 # /instrument or /instrument <children>
   instrument: 
     children: 
-      - resourcepack
       - update
       - songs
       - get
       - lang
+      - resourcepack
     permissions: 
       - instrument.commands.instrument
     description: opens instrument configuration GUI where player can modify behaviour currently using
     usage: /instrument or /instrument <children>
-# /instrument resourcepack
-  resourcepack: 
-    description: downloads plugin resourcepack
-    usage: /instrument resourcepack
-
 # /instrument update
   update: 
     permissions: 
@@ -117,8 +105,8 @@ commands:
           description: select instrument type
           options: 
               - acoustic
-              - electric
               - classical
+              - electric
     description: by trigger this player will get selected instrument
     usage: /instrument get <instrument-type>
 
@@ -136,6 +124,11 @@ commands:
               - pl
     description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
     usage: /instrument lang <language>
+
+# /instrument resourcepack
+  resourcepack: 
+    description: downloads plugin resourcepack
+    usage: /instrument resourcepack
 
 
 
