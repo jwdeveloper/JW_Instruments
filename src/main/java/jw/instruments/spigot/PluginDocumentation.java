@@ -18,10 +18,13 @@ public class PluginDocumentation extends DocumentationDecorator {
 
         addText(builder.build(), documentation);
 
-        addText("Select chord from over 100", documentation);
-        addText("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/chords.gif", documentation);
-
-        addText("Plugin showcase", documentation);
+        addText("Plugin showcase: https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW", documentation,"spigot-ignore");
         addVideo("https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW", documentation);
+
+
+
+        addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/guitars.gif", documentation);
+        addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/chords.gif", documentation);
+        addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/chordschange.gif", documentation);
     }
 }

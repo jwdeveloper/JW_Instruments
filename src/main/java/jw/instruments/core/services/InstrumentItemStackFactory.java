@@ -46,6 +46,11 @@ public class InstrumentItemStackFactory implements ItemStackSerializerProfile<In
         var names =  chordService.getDefaultChords().stream().map(c -> c.fullName()).toList();
         for(var i=0;i<chords.length;i++)
         {
+            if(i > names.size()-1)
+            {
+                break;
+            }
+
             chords[i] = names.get(i);
         }
 
