@@ -1,0 +1,45 @@
+gui:
+  instrument:
+    title: Instrument
+    chord-placeholder:
+      title: Chord placeholder
+      desc:
+       left-click: Change
+       shift-click: Remove
+    export:
+      title: Export to song
+    import:
+      title: Import from song
+    volume:
+      title: Change volume
+    rhythm:
+      title: Change rhythm on shift press
+    chords:
+      title: Display chords
+
+  chords:
+    title: Chords
+    search:
+      by-name: By name
+      by-key: By Key
+      by-suffix: By suffix
+    select-instrument:
+      title: Select instrument
+    select-rhythm:
+      title: Select rhythm
+    chord:
+      left-click: Select
+      right-click: Play
+      shift-click: Draw
+
+  song:
+    form:
+      title: New song
+      message: Write new song title to chat
+    picker:
+      title: Pick a song
+    list:
+      title: Songs
+      search:
+        by-title: By title
+        by-author: By author

@@ -41,6 +41,13 @@ public final class Main extends FluentPlugin {
         {
             options.setPermissionModel(PluginPermissions.class);
             options.addDecorator(new PluginDocumentation());
+
+            if(FluentApi.plugin().getDescription().getVersion().equals("${version}"))
+            {
+                options.setUseGithubDocumentation(true);
+                options.setUseSpigotDocumentation(true);
+            }
+
         });
         builder.permissions().setBasePermissionName(PluginPermissions.PLUGIN);
     }
