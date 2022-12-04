@@ -32,7 +32,7 @@ jobs:
         
     
     - name: 3-1 Include Api
-      run: mvn install:install-file -Dfile=/lib/SpigotFluentApi.jar -DgroupId=jw -DartifactId=SpigotFluentApi -Dversion=1.0.0 -Dpackaging=jar
+      run: mvn install:install-file -Dfile=${GITHUB_WORKSPACE}/lib/SpigotFluentApi.jar -DgroupId=jw -DartifactId=SpigotFluentApi -Dversion=1.0.0 -Dpackaging=jar
       
     - name: 3-2 Build with Maven
       run: mvn package -P publish -Dname=TestingProject -Dversion=${{steps.version.outputs.version_tag}} --file pom.xml  
