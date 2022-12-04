@@ -27,7 +27,6 @@ public class ChordExtention implements FluentApiExtention {
     public void onFluentApiEnable(FluentApi fluentAPI) {
         var chordsService =  FluentApi.injection().findInjection(ChordService.class);
         var chords = loadChords();
-   //     FluentLogger.LOGGER.log("Chords",chords.size(), chordsService.toString());
         chordsService.add(chords);
     }
 
@@ -49,10 +48,6 @@ public class ChordExtention implements FluentApiExtention {
         {
             var finger = chordDto.getFrets().get(i);
             var stringId = Consts.STRINGS -1-i;
-            if(chordDto.getKey().equals("E") && chordDto.getSuffix().equals("minor"))
-            {
-              //  FluentApi.logger().log("finger",finger,"StringID",stringId);
-            }
             if(finger == 0)
             {
                 builder.addNote(finger, stringId,0.4f);

@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @PlayerContext
-@Injection(lifeTime = LifeTime.SINGLETON)
+@Injection(lifeTime = LifeTime.TRANSIENT)
 public class SongsFormGui extends ChestUI {
 
     private Song song;
@@ -209,7 +209,6 @@ public class SongsFormGui extends ChestUI {
                     }
                     openParent();
                 })
-
                 .buildAndAdd(this);
 
         ButtonUI.builder()

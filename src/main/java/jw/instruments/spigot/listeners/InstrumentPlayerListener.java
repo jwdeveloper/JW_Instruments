@@ -4,6 +4,7 @@ import jw.instruments.core.managers.InstrumentManager;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent_api.spigot.events.EventBase;
+import jw.instruments.core.services.RhythmService;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -17,6 +18,7 @@ import org.bukkit.event.server.PluginEnableEvent;
 @Injection(lazyLoad = false)
 public class InstrumentPlayerListener extends EventBase {
     private final InstrumentManager manager;
+
     @Inject
     public InstrumentPlayerListener(InstrumentManager instrumentManager) {
         this.manager = instrumentManager;
@@ -55,7 +57,6 @@ public class InstrumentPlayerListener extends EventBase {
         instrumentPlayer.changeChord(event.getNewSlot());
     }
 
-
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         var player = event.getPlayer();
@@ -87,17 +88,6 @@ public class InstrumentPlayerListener extends EventBase {
     }
 
     @EventHandler
-    public void onInventoryClick(InventoryClickEvent e) {
-        var player = (Player) e.getWhoClicked();
-        var item = e.getCurrentItem();
-        if (!manager.validateChord(item)) {
-            return;
-        }
-        player.setItemOnCursor(null);
-        e.setCurrentItem(null);
-    }
-
-    @EventHandler
     public void changePlayingStyle(PlayerToggleSneakEvent event) {
         final var player = event.getPlayer();
         if (!manager.validatePlayer(player)) {
@@ -106,27 +96,8 @@ public class InstrumentPlayerListener extends EventBase {
         if (!player.isSneaking()) {
             return;
         }
-        manager.get(player.getUniqueId()).changeStyle();
+        manager.get(player.getUniqueId()).changeStyle(player);
     }
-
-
-    @EventHandler
-    public void onPlayerAttacked(EntityDamageByEntityEvent e) {
-
-        if (!(e.getDamager().getType() == EntityType.PLAYER)) {
-            return;
-        }
-        final var player = (Player) e.getDamager();
-        if (!manager.validatePlayer(player)) {
-            return;
-        }
-        final var itemStack = player.getInventory().getItemInMainHand();
-        if (!manager.validateInstrument(itemStack)) {
-            return;
-        }
-        manager.get(player.getUniqueId()).makeNoise();
-    }
-
     @Override
     public void onPluginStart(PluginEnableEvent event) {
         for (var player : Bukkit.getOnlinePlayers()) {
@@ -137,16 +108,6 @@ public class InstrumentPlayerListener extends EventBase {
             manager.register(player, offHandItem);
         }
     }
-
-    @EventHandler
-    public void onItemDrop(PlayerDropItemEvent e) {
-        final var player = (Player) e.getPlayer();
-        if (!manager.validatePlayer(player)) {
-            return;
-        }
-        e.setCancelled(true);
-    }
-
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent playerJoinEvent) {
         final var player = playerJoinEvent.getPlayer();

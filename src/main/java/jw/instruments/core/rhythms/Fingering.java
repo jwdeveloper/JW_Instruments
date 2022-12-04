@@ -80,12 +80,13 @@ public class Fingering implements Rhythm {
                         }
                     }
                     var notes = timeline.next();
+                    float volume = (event.volume()/100f);
                     for (var note : notes) {
                         currentEvent
                                 .getWorld()
                                 .playSound(currentEvent.getLocation(),
                                         getSoundName(note.id(), currentEvent.guitarType()),
-                                        1,
+                                        volume,
                                         note.pitch());
                         emitEvent(new NoteEvent(note));
                     }

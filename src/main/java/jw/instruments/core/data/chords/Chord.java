@@ -11,7 +11,6 @@ import java.util.List;
 
 public record Chord(String key, String suffix, Integer fret, List<Note> notes) {
 
-
     public String fullName() {
         return key + " " + suffix;
     }
@@ -24,17 +23,6 @@ public record Chord(String key, String suffix, Integer fret, List<Note> notes) {
         meta.getPersistentDataContainer().set(getNamespace(), PersistentDataType.STRING,fullName());
         itemStack.setItemMeta(meta);
         return itemStack;
-    }
-
-
-    public static boolean isChord(ItemStack itemStack) {
-        if (itemStack == null)
-            return false;
-        if (itemStack.getItemMeta() == null)
-            return false;
-
-        var container = itemStack.getItemMeta().getPersistentDataContainer();
-        return container.has(getNamespace(), PersistentDataType.STRING);
     }
 
     private static NamespacedKey getNamespace() {

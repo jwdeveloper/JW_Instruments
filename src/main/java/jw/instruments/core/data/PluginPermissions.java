@@ -10,7 +10,6 @@ public class PluginPermissions {
     private final static String COMMAND = PLUGIN + ".commands";
     private final static String GUI = PLUGIN + ".gui";
 
-
     @PermissionGroup(group = "plugin")
     @PermissionProperty(description = "Allows player to play the instrument")
     public final static String PLAY = PLUGIN + ".play";
@@ -18,8 +17,6 @@ public class PluginPermissions {
     @PermissionGroup(group = "plugin")
     @PermissionProperty(description = "Unlimited amount of songs player can create it also includes [song export]")
     public final static String SONGS_INSERT_NO_LIMIT = PLUGIN + ".song.no-limit";
-
-
 
 
     @PermissionGroup(group = "commands")
@@ -33,9 +30,6 @@ public class PluginPermissions {
     @PermissionGroup(group = "commands")
     @PermissionProperty(description = "/instrument songs (opens songs gui)")
     public final static String SONGS_CMD = COMMAND + ".songs";
-
-
-
 
 
     @PermissionTitle(title = "gui [Instrument]")

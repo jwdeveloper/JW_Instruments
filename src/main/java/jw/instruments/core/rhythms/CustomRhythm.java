@@ -92,8 +92,6 @@ public class CustomRhythm implements Rhythm {
                         }
                     }
                     for (var note : timeline.next()) {
-                        //Bukkit.getOnlinePlayers().forEach(c -> c.playSound(c.getLocation(),"minecraft:acoustic3",1,1));
-                        FluentApi.logger().info("Name",getSoundName(note.id(), currentEvent.guitarType()));
                         currentEvent
                                 .getWorld()
                                 .playSound(currentEvent.player().getLocation(),

@@ -13,7 +13,6 @@ public class ChordBuilder {
     private String suffix;
     private Integer fret;
 
-
     ChordBuilder(String key, String suffix) {
         this(key,suffix,0);
     }
