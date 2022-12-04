@@ -1,57 +1,72 @@
-> Thank you for using plugin! I believe it gives you much fun
-> Documentation is divided to few sections
--   [Information]   General info about plugin and author
--   [Commands]      Command, arguments, command permissions
--   [Permissions]   Permissions and reactions between them
--   [License]       Plugin license
-> Be aware modifications of this file has NO impact on plugin
-> To change plugin behaviour edit config.yml file
-## Information
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/F4iKXAMIioo/0.jpg)](https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW)
+![alt text](https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/banners/configuration.png)
 ``` yaml
-information: 
-  author: JW
-  spigot-url: https://www.facebook.com/
-  github-url: https://www.facebook.com/
-  report-bug: https://www.facebook.com/
+#
+# plugin.language
+# -> If you want add your language open `languages` folder copy `en.yml` call it as you want 
+# set `language` property to your path name and /reload server 
+#
+# plugin.saving-frequency
+# -> Determinate how frequent data is saved to files, value in minutes
+#
+#
+# song.songs-limit
+# -> Determine how much songs player can create 
+# It's not applied for players with 
+#  - op 
+#  - instrument.song.no-limit 
+#
+#
+# plugin.resourcepack.url
+#    If you need to replace default resourcepack with your custom one
+#    set this to link of you resourcepack
+#    ! after plugin update make sure your custom resourcepack is compatible !
+# plugin.resourcepack.load-on-join
+#    Downloads resourcepack when player joins to server
+
+plugin:
+  version: ${version}
+  language: en
+  saving-frequency: 5
+  resourcepack:
+    url: https://github.com/jwdeveloper/JW_Instruments/releases/latest/download/instrumentpack.rar
+    load-on-join: true
+song:
+  songs-limit: 5
 
 ```
-## Commands
+![alt text](https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/banners/commands.png)
 ``` yaml
-commands-tree: 
-disable: 
-instrument: 
-  resourcepack: 
-  lang: 
-  update: 
-  songs: 
-  get: 
 
 
 commands: 
-#disable
-disable: 
+#/disable
+  disable: 
     description: Command only for plugin development purpose. Can be only trigger by Console. disables all plugins
     usage: /disable
 
-#instrument
-instrument: 
+#/instrument or /instrument <children>
+  instrument: 
     children: 
-      - resourcepack
-      - lang
       - update
+      - lang
       - songs
       - get
+      - resourcepack
     permissions: 
       - instrument.commands.instrument
     description: opens instrument configuration GUI where player can modify behaviour currently using
     usage: /instrument or /instrument <children>
-#resourcepack
-resourcepack: 
-    description: downloads plugin resourcepack
-    usage: /instrument resourcepack
+#/instrument update
+  update: 
+    permissions: 
+      - instrument.commands.update
+    description: download plugin latest version, can be trigger both by player or console
+    usage: /instrument update
 
-#lang
-lang: 
+#/instrument lang <language>
+  lang: 
     permissions: 
       - instrument.commands.lang
     arguments: 
@@ -65,22 +80,15 @@ lang:
     description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
     usage: /instrument lang <language>
 
-#update
-update: 
-    permissions: 
-      - instrument.commands.update
-    description: download plugin latest version, can be trigger both by player or console
-    usage: /instrument update
-
-#songs
-songs: 
+#/instrument songs
+  songs: 
     permissions: 
       - instrument.commands.songs
     description: opens GUI where you can Edit, Create, Delete songs
     usage: /instrument songs
 
-#get
-get: 
+#/instrument get <instrument-type>
+  get: 
     permissions: 
       - instrument.commands.get
     arguments: 
@@ -89,15 +97,20 @@ get:
           description: select instrument type
           options: 
               - electric
-              - classical
               - acoustic
+              - classical
     description: by trigger this player will get selected instrument
     usage: /instrument get <instrument-type>
+
+#/instrument resourcepack
+  resourcepack: 
+    description: downloads plugin resourcepack
+    usage: /instrument resourcepack
 
 
 
 ```
-## Permissions
+![alt text](https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/banners/permissions.png)
 ``` yaml
 permissions: 
 

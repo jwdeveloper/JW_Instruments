@@ -10,6 +10,7 @@ import jw.instruments.core.instuments.Instrument;
 import jw.instruments.core.extentions.ChordExtention;
 import jw.instruments.core.extentions.CommandExtention;
 import jw.instruments.core.extentions.GuitarExtention;
+import jw.instruments.spigot.PluginDocumentation;
 
 
 public final class Main extends FluentPlugin {
@@ -36,9 +37,10 @@ public final class Main extends FluentPlugin {
         builder.useExtention(new GuitarExtention());
         builder.useExtention(new CommandExtention());
 
-        container.addDocumentation(updaterOptions ->
+        container.addDocumentation(options ->
         {
-            updaterOptions.setPermissionModel(PluginPermissions.class);
+            options.setPermissionModel(PluginPermissions.class);
+            options.addDecorator(new PluginDocumentation());
         });
         builder.permissions().setBasePermissionName(PluginPermissions.PLUGIN);
     }
