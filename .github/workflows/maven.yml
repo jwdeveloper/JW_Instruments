@@ -43,7 +43,7 @@ jobs:
    
       
     - name: 4.3 zip resourcepack
-      run: zip -r -j instrumentpack.zip instrumentpack/*
+      run: (cd instrumentpack && zip -r - .) >instrumentpack.zip
       
       
     - name: 6 set up a cache for maven
