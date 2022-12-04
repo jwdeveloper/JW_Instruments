@@ -1,5 +1,5 @@
 
-![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/banner_plugin.jpg)
+![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/plugin_baner.jpg)
 
 <p align="center">
 <a href="https://discord.gg/2hu6fPPeF7"><img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png"  /></a><a href="https://github.com/jwdeveloper/JW_Instruments"><img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png"  /></a><a href="https://www.spigotmc.org/members/jacekwoln.869774/"><img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/spigot.png"  /></a></p>
@@ -72,15 +72,35 @@ commands:
 # /instrument or /instrument <children>
   instrument: 
     children: 
+      - resourcepack
+      - lang
       - update
       - songs
       - get
-      - lang
-      - resourcepack
     permissions: 
       - instrument.commands.instrument
     description: opens instrument configuration GUI where player can modify behaviour currently using
     usage: /instrument or /instrument <children>
+# /instrument resourcepack
+  resourcepack: 
+    description: downloads plugin resourcepack
+    usage: /instrument resourcepack
+
+# /instrument lang <language>
+  lang: 
+    permissions: 
+      - instrument.commands.lang
+    arguments: 
+      - language:
+          type: text
+          description: select language
+          options: 
+              - en
+              - kr
+              - pl
+    description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
+    usage: /instrument lang <language>
+
 # /instrument update
   update: 
     permissions: 
@@ -104,31 +124,11 @@ commands:
           type: custom
           description: select instrument type
           options: 
-              - acoustic
-              - classical
               - electric
+              - classical
+              - acoustic
     description: by trigger this player will get selected instrument
     usage: /instrument get <instrument-type>
-
-# /instrument lang <language>
-  lang: 
-    permissions: 
-      - instrument.commands.lang
-    arguments: 
-      - language:
-          type: text
-          description: select language
-          options: 
-              - en
-              - kr
-              - pl
-    description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
-    usage: /instrument lang <language>
-
-# /instrument resourcepack
-  resourcepack: 
-    description: downloads plugin resourcepack
-    usage: /instrument resourcepack
 
 
 
