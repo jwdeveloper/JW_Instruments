@@ -5,6 +5,9 @@
 *.ipr
 *.iws
 
+
+${project.basedir}
+${project.build.directory}
 # IntelliJ
 out/
 
