@@ -40,11 +40,10 @@ jobs:
     - name: 4.1 copy jar files
       run: mkdir staging && cp target/*.jar staging 
    
-    - name: 4.2 rename file
-      run: mv staging/JW_Instruments-${{steps.version.outputs.version_tag}}-shaded.jar ${{github.event.repository.name}}.jar 
+   
       
     - name: 4.3 zip resourcepack
-      run: zip -r instrumentpack.zip instrumentpack/*
+      run: zip -r -j instrumentpack.zip instrumentpack/*
       
       
     - name: 6 set up a cache for maven
