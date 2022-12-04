@@ -21,10 +21,11 @@ jobs:
       id: version
       uses: PaulHatch/semantic-version@v4.0.2
       with:
-          tag_prefix: "v"
+          tag_prefix: ""
           major_pattern: "maj"
           minor_pattern: "min"
           format: "${major}.${minor}.${patch}"
+          namespace: Release
           change_path: "."
           short_tags: false
           bump_each_commit: false    
