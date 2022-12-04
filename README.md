@@ -6,9 +6,9 @@
 
 If you are looking a plugin to enrich server experience this is the solution. Plugin adds bunch of instruments each of them is playable with all possible chords you can imagine. Therefore consider to use this plugin especially on RolePlay server
 
-Plugin tutorial: https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW
+Plugin tutorial: https://www.youtube.com/watch?v=5X_T7s8Z6YQ&t=1s&ab_channel=JW
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/F4iKXAMIioo/0.jpg)](https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/5X_T7s8Z6YQ/0.jpg)](https://www.youtube.com/watch?v=5X_T7s8Z6YQ&t=1s&ab_channel=JW)
 
 
 ![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/guitars.gif)
@@ -72,35 +72,15 @@ commands:
 # /instrument or /instrument <children>
   instrument: 
     children: 
-      - resourcepack
-      - lang
       - update
       - songs
       - get
+      - lang
+      - resourcepack
     permissions: 
       - instrument.commands.instrument
     description: opens instrument configuration GUI where player can modify behaviour currently using
     usage: /instrument or /instrument <children>
-# /instrument resourcepack
-  resourcepack: 
-    description: downloads plugin resourcepack
-    usage: /instrument resourcepack
-
-# /instrument lang <language>
-  lang: 
-    permissions: 
-      - instrument.commands.lang
-    arguments: 
-      - language:
-          type: text
-          description: select language
-          options: 
-              - en
-              - kr
-              - pl
-    description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
-    usage: /instrument lang <language>
-
 # /instrument update
   update: 
     permissions: 
@@ -124,11 +104,31 @@ commands:
           type: custom
           description: select instrument type
           options: 
-              - electric
-              - classical
               - acoustic
+              - classical
+              - electric
     description: by trigger this player will get selected instrument
     usage: /instrument get <instrument-type>
+
+# /instrument lang <language>
+  lang: 
+    permissions: 
+      - instrument.commands.lang
+    arguments: 
+      - language:
+          type: text
+          description: select language
+          options: 
+              - en
+              - kr
+              - pl
+    description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
+    usage: /instrument lang <language>
+
+# /instrument resourcepack
+  resourcepack: 
+    description: downloads plugin resourcepack
+    usage: /instrument resourcepack
 
 
 
