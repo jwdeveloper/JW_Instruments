@@ -2,7 +2,6 @@ package jw.instruments.spigot;
 
 import jw.fluent.api.spigot.documentation.api.DocumentationDecorator;
 import jw.fluent.api.spigot.documentation.api.models.Documentation;
-import jw.fluent.api.spigot.messages.message.MessageBuilder;
 import jw.fluent.api.utilites.java.StringUtils;
 import jw.instruments.core.data.Consts;
 
@@ -37,8 +36,8 @@ public class PluginDocumentation extends DocumentationDecorator {
 
         addText(builder.build(), documentation, "plugin-ignore");
 
-        addText("Plugin tutorial: https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW", documentation, "spigot-ignore");
-        addVideo("https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW", documentation);
+        addText("Plugin tutorial: https://www.youtube.com/watch?v=5X_T7s8Z6YQ&t=1s&ab_channel=JW", documentation, "spigot-ignore");
+        addVideo("https://www.youtube.com/watch?v=5X_T7s8Z6YQ&t=1s&ab_channel=JW", documentation);
 
 
         addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/guitars.gif", documentation);
