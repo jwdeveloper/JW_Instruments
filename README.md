@@ -68,15 +68,30 @@ commands:
 # /instrument or /instrument <children>
   instrument: 
     children: 
+      - lang
       - resourcepack
       - songs
       - get
       - update
-      - lang
     permissions: 
       - instrument.commands.instrument
     description: opens instrument configuration GUI where player can modify behaviour currently using
     usage: /instrument or /instrument <children>
+# /instrument lang <language>
+  lang: 
+    permissions: 
+      - instrument.commands.lang
+    arguments: 
+      - language:
+          type: text
+          description: select language
+          options: 
+              - en
+              - kr
+              - pl
+    description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
+    usage: /instrument lang <language>
+
 # /instrument resourcepack
   resourcepack: 
     description: downloads plugin resourcepack
@@ -99,8 +114,8 @@ commands:
           description: select instrument type
           options: 
               - classical
-              - electric
               - acoustic
+              - electric
     description: by trigger this player will get selected instrument
     usage: /instrument get <instrument-type>
 
@@ -110,21 +125,6 @@ commands:
       - instrument.commands.update
     description: download plugin latest version, can be trigger both by player or console
     usage: /instrument update
-
-# /instrument lang <language>
-  lang: 
-    permissions: 
-      - instrument.commands.lang
-    arguments: 
-      - language:
-          type: text
-          description: select language
-          options: 
-              - en
-              - kr
-              - pl
-    description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
-    usage: /instrument lang <language>
 
 
 
