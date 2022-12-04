@@ -30,9 +30,13 @@ jobs:
           short_tags: false
           bump_each_commit: false    
         
-    - name: 3 Build with Maven
-      run: mvn -B package -Dname=TestingProject -Dversion=${{steps.version.outputs.version_tag}} --file pom.xml 
+    
+    - name: 3-1 Include Api
+      run: mvn install:install-file -Dfile=lib\SpigotFluentApi.jar -DgroupId=jw -DartifactId=SpigotFluentApi -Dversion=1.0.0 -Dpackaging=jar
       
+    - name: 3-2 Build with Maven
+      run: mvn package -P publish -Dname=TestingProject -Dversion=${{steps.version.outputs.version_tag}} --file pom.xml  
+     
     - name: 4 Run Unit Tests
       run: mvn -B test -Dname=TestingProject -Dversion=${{steps.version.outputs.version_tag}} --file pom.xml 
       
