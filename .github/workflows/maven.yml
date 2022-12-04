@@ -1,10 +1,6 @@
 name: Publish Plugin
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - 'release'
+on: workflow_dispatch
 
 jobs:
   build:
@@ -26,8 +22,8 @@ jobs:
       uses: PaulHatch/semantic-version@v4.0.2
       with:
           tag_prefix: ""
-          major_pattern: "maj"
-          minor_pattern: "min"
+          major_pattern: "MAJOR"
+          minor_pattern: "MINOR"
           format: "${major}.${minor}.${patch}"
           namespace: Release
           change_path: "."
