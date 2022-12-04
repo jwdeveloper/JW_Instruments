@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Publish Plugin
 
 on: workflow_dispatch
 
