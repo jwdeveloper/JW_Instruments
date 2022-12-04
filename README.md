@@ -10,6 +10,7 @@ Plugin tutorial: https://www.youtube.com/watch?v=5X_T7s8Z6YQ&t=1s&ab_channel=JW
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/5X_T7s8Z6YQ/0.jpg)](https://www.youtube.com/watch?v=5X_T7s8Z6YQ&t=1s&ab_channel=JW)
 
+Test
 
 ![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/guitars.gif)
 
