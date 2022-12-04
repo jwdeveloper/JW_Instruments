@@ -8,6 +8,7 @@
   - <B>[Permissions](#Permissions)</b>   Permissions and reactions between them
   - <B>[License](#License)</b>      Plugin license
 
+Test
 
 ## Information                                                   
 ``` yaml
