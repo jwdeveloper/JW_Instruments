@@ -1,9 +1,9 @@
 package jw.instruments.spigot.gui;
 
-import jw.fluent_api.player_context.api.PlayerContext;
-import jw.fluent_api.spigot.inventory_gui.button.button_observer.ButtonObserverUI;
-import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
-import jw.fluent_plugin.implementation.modules.translator.FluentTranslator;
+import jw.fluent.api.player_context.api.PlayerContext;
+import jw.fluent.api.spigot.inventory_gui.button.button_observer.ButtonObserverUI;
+
+import jw.fluent.plugin.implementation.modules.translator.FluentTranslator;
 import jw.instruments.core.data.PluginPermissions;
 import jw.instruments.core.data.chords.Chord;
 import jw.instruments.core.data.instrument.InstrumentItemStackObserver;
@@ -12,13 +12,13 @@ import jw.instruments.core.factory.ButtonsFactory;
 import jw.instruments.spigot.gui.songs.SongsFormGui;
 import jw.instruments.spigot.gui.songs.SongsPickerGui;
 import jw.instruments.core.services.ChordService;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_api.spigot.inventory_gui.button.ButtonUI;
-import jw.fluent_api.spigot.inventory_gui.enums.ButtonType;
-import jw.fluent_api.spigot.inventory_gui.implementation.chest_ui.ChestUI;
-import jw.fluent_api.utilites.java.StringUtils;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent.api.spigot.inventory_gui.button.ButtonUI;
+import jw.fluent.api.spigot.inventory_gui.enums.ButtonType;
+import jw.fluent.api.spigot.inventory_gui.implementation.chest_ui.ChestUI;
+import jw.fluent.api.utilites.java.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -134,7 +134,7 @@ public class InstrumentViewGui extends ChestUI {
 
     private void refreshChords() {
         var chords = instrumentData.getChords().get();
-        FluentLogger.LOGGER.log("Chords refresh");
+
         for (var i = 0; i < INVENTORY_WIDTH; i++) {
             var chordName = chords[i];
             var button = chordsButtons.get(i);

@@ -1,8 +1,8 @@
 package jw.instruments.core.instuments;
 
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.instruments.core.data.Consts;
-import jw.fluent_api.spigot.gameobjects.api.models.CustomModel;
+import jw.fluent.api.spigot.gameobjects.api.models.CustomModel;
 import org.bukkit.Material;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.persistence.PersistentDataType;

@@ -1,11 +1,8 @@
 package jw.instruments.core.data.instrument;
 
-import jw.fluent_api.spigot.inventory_gui.InventoryUI;
-import jw.fluent_api.utilites.java.StringUtils;
+import jw.fluent.api.spigot.inventory_gui.InventoryUI;
+import jw.fluent.api.utilites.java.StringUtils;
 import lombok.Data;
-
-import java.util.Arrays;
-import java.util.Map;
 
 @Data
 public class InstrumentData

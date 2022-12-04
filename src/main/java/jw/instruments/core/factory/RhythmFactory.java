@@ -1,6 +1,5 @@
 package jw.instruments.core.factory;
 
-import jw.fluent_plugin.implementation.FluentApi;
 import jw.instruments.core.rhythms.Rhythm;
 import jw.instruments.core.builders.rhythm.RhythmBuilder;
 

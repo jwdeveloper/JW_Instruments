@@ -1,14 +1,14 @@
 package jw.instruments.core.extentions;
 
-import jw.fluent_plugin.api.FluentApiBuilder;
-import jw.fluent_plugin.api.FluentApiExtention;
-import jw.fluent_plugin.implementation.FluentApi;
+import jw.fluent.plugin.api.FluentApiBuilder;
+import jw.fluent.plugin.api.FluentApiExtention;
+import jw.fluent.plugin.implementation.FluentApi;
 import jw.instruments.core.data.Consts;
 import jw.instruments.core.services.InstrumentService;
 import jw.instruments.core.data.PluginConfig;
 import jw.instruments.core.instuments.Instrument;
-import jw.fluent_api.spigot.events.FluentEvent;
-import jw.fluent_api.spigot.messages.FluentMessage;
+import jw.fluent.api.spigot.events.FluentEvent;
+import jw.fluent.api.spigot.messages.FluentMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.CraftItemEvent;

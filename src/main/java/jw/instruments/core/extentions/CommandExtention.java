@@ -1,14 +1,12 @@
 package jw.instruments.core.extentions;
 
-import jw.fluent_api.spigot.messages.FluentMessage;
-import jw.fluent_plugin.api.FluentApiBuilder;
-import jw.fluent_plugin.api.FluentApiExtention;
-import jw.fluent_plugin.implementation.FluentApi;
-import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
+import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.api.FluentApiBuilder;
+import jw.fluent.plugin.api.FluentApiExtention;
+import jw.fluent.plugin.implementation.FluentApi;
 import jw.instruments.core.data.PluginPermissions;
 import jw.instruments.core.services.CommandsService;
 import jw.instruments.core.managers.InstrumentManager;
-import jw.instruments.core.services.InstrumentService;
 
 public class CommandExtention implements FluentApiExtention {
 

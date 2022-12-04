@@ -1,10 +1,10 @@
 package jw.instruments.core.factory;
 
-import jw.fluent_api.spigot.inventory_gui.InventoryUI;
-import jw.fluent_api.spigot.inventory_gui.button.ButtonUI;
-import jw.fluent_api.spigot.inventory_gui.button.ButtonUIBuilder;
-import jw.fluent_api.spigot.messages.FluentMessage;
-import jw.fluent_plugin.implementation.modules.translator.FluentTranslator;
+import jw.fluent.api.spigot.inventory_gui.InventoryUI;
+import jw.fluent.api.spigot.inventory_gui.button.ButtonUI;
+import jw.fluent.api.spigot.inventory_gui.button.ButtonUIBuilder;
+import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.implementation.modules.translator.FluentTranslator;
 import org.bukkit.Material;
 
 import java.util.ArrayList;

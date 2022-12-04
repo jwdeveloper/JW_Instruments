@@ -1,27 +1,45 @@
 gui:
-  base:
-    insert:
-      title: Dodaj
-    delete:
-      title: Usuń
-    edit:
-      title: Edytuj
-    search:
-      title: Szukaj
-    page-up:
-      title: Następna strona
-    page-down:
-      title: Poprzednia strona
-    exit:
-      title: Wyjście
-    back:
-      title: Confnij
-    value: wartość
-    active: aktywne
-    inactive: nieaktywne
-    state: stan
+  instrument:
+    title: Instrument
+    chord-placeholder:
+      title: Akord
+      desc:
+        left-click: Zmień
+        shift-click: Usuń
+    export:
+      title: Zapisz jako piosenke
+    import:
+      title: Wczytaj z piosenki
+    volume:
+      title: Zmień głośność
+    rhythm:
+      title: Zmień rytm po kliknieciu Shift'a
+    chords:
+      title: Pokazuj akordy
 
-permissions:
-      one-required: Musisz posiadać jedną z tych permisji
-      all-required: Musisz mieć te permisje
-      incorrect-number-of-arguments: Zła ilość argumentów, powinno być,
+  chords:
+    title: Akordy
+    search:
+      by-name: Nazwą
+      by-key: Literą
+      by-suffix: Przedrostkiem
+    select-instrument:
+      title: Wybierz instrument
+    select-rhythm:
+      title: Wybierz rytm
+    chord:
+      left-click: Wybierz
+      right-click: Zagraj
+      shift-click: Narysuj
+
+  song:
+    form:
+      title: Nowa piosenka
+      message: Napisz tytuł na piosenki na czacie
+    picker:
+      title: Wybierz piosenke
+    list:
+      title: Piosenki
+      search:
+        by-title: Tytułem
+        by-author: Autorem

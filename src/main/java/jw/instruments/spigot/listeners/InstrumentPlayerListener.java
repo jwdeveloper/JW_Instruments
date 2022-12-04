@@ -1,16 +1,11 @@
 package jw.instruments.spigot.listeners;
 
 import jw.instruments.core.managers.InstrumentManager;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.spigot.events.EventBase;
-import jw.instruments.core.services.RhythmService;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.spigot.events.EventBase;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.event.server.PluginEnableEvent;
 
@@ -66,21 +61,12 @@ public class InstrumentPlayerListener extends EventBase {
             default -> true;
         };
         if (!manager.validatePlayer(player)) {
-            if (isLeftClick) {
-                return;
-            }
-
-            var mainHand = player.getInventory().getItemInMainHand();
-            if (!manager.validateInstrument(mainHand)) {
-                return;
-            }
-            player.getInventory().setItemInOffHand(mainHand);
-            player.getInventory().setItemInMainHand(null);
-            manager.register(player, mainHand);
+            manager.tryRegister(player);
             return;
         }
         var itemInOffHand = player.getInventory().getItemInOffHand();
         if (!manager.validateInstrument(itemInOffHand)) {
+            manager.unregister(player);
             return;
         }
         event.setCancelled(true);

@@ -1,12 +1,12 @@
 package jw.instruments.spigot.gui;
 
-import jw.fluent_api.player_context.api.PlayerContext;
+import jw.fluent.api.player_context.api.PlayerContext;
 import jw.instruments.core.services.InstrumentService;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_api.spigot.inventory_gui.implementation.crafting_ui.CraftingUI;
-import jw.fluent_api.spigot.tasks.FluentTaskTimer;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent.api.spigot.inventory_gui.implementation.crafting_ui.CraftingUI;
+import jw.fluent.api.spigot.tasks.FluentTaskTimer;
 import org.bukkit.entity.Player;
 
 @PlayerContext

@@ -1,6 +1,5 @@
 package jw.instruments.core.factory;
 
-import jw.fluent_plugin.implementation.FluentApi;
 import lombok.Data;
 
 import java.text.DecimalFormat;

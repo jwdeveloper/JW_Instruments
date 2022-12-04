@@ -1,20 +1,12 @@
 package jw.instruments.core.data.instrument;
 
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_api.desing_patterns.observer.implementation.Observer;
-import jw.fluent_api.desing_patterns.observer.implementation.ObserverBag;
-import jw.fluent_api.spigot.inventory_gui.InventoryUI;
-import jw.fluent_plugin.implementation.FluentApi;
-import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
-import jw.instruments.core.rhythms.Rhythm;
-import lombok.Data;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent.api.desing_patterns.observer.implementation.Observer;
+import jw.fluent.api.desing_patterns.observer.implementation.ObserverBag;
+import jw.fluent.api.spigot.inventory_gui.InventoryUI;
 import lombok.Getter;
-import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.persistence.PersistentDataType;
 
-import java.beans.Transient;
 import java.util.Map;
 
 

@@ -1,15 +1,16 @@
 package jw.instruments.core.services;
 
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_plugin.implementation.FluentApi;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.utilites.InventoryUtility;
+import jw.fluent.plugin.implementation.FluentApi;
 import jw.instruments.core.data.PluginPermissions;
 import jw.instruments.spigot.gui.songs.SongsListGui;
-import jw.fluent_api.spigot.commands.FluentCommand;
-import jw.fluent_api.spigot.commands.api.builder.CommandBuilder;
-import jw.fluent_api.spigot.commands.api.enums.ArgumentDisplay;
-import jw.fluent_api.spigot.commands.api.enums.ArgumentType;
-import jw.fluent_api.spigot.messages.FluentMessage;
+import jw.fluent.api.spigot.commands.FluentCommand;
+import jw.fluent.api.spigot.commands.api.builder.CommandBuilder;
+import jw.fluent.api.spigot.commands.api.enums.ArgumentDisplay;
+import jw.fluent.api.spigot.commands.api.enums.ArgumentType;
+import jw.fluent.api.spigot.messages.FluentMessage;
 import org.bukkit.ChatColor;
 
 
@@ -91,15 +92,14 @@ public class CommandsService {
                             .send(event.getPlayer());
                     return;
                 }
-                var itemstack = optionalItemstack.get();
-                event.getPlayer().getInventory().setItem(0,itemstack.getItemStack());
+                var instrumentItemStack = optionalItemstack.get();
+                InventoryUtility.giveToEmptySlotOrDrop(event.getPlayer(),instrumentItemStack.getItemStack(),true);
                 FluentMessage.message()
                         .info()
                         .textSecondary("Press ")
                         .textPrimary('f')
                         .textSecondary(" to use instrument")
                         .send(event.getPlayer());
-
             });
         });
         return cmd;

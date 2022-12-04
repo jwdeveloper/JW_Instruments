@@ -1,7 +1,7 @@
 package jw.instruments.core.data;
 
-import jw.fluent_api.utilites.files.yml.api.annotations.YmlProperty;
-import jw.fluent_api.utilites.java.StringUtils;
+import jw.fluent.api.utilites.files.yml.api.annotations.YmlProperty;
+import jw.fluent.api.utilites.java.StringUtils;
 import lombok.Data;
 import org.bukkit.Material;
 

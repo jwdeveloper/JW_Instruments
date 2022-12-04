@@ -4,8 +4,8 @@ package jw.instruments.core.services;
 import jw.instruments.core.data.CustomSkin;
 import jw.instruments.core.instuments.CustomInstrument;
 import jw.instruments.core.instuments.Instrument;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import lombok.Getter;
 
 import java.util.List;
