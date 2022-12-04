@@ -48,7 +48,7 @@
                         <configuration>
                             <shadedArtifactAttached>true</shadedArtifactAttached>
                             <shadedClassifierName>jar-with-dependencies</shadedClassifierName>
-                            <exclude>lib/**</exclude>
+                            <exclude>lib/***</exclude>
                         </configuration>
                     </execution>
                 </executions>
