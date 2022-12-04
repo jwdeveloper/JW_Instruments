@@ -4,15 +4,52 @@ main: jw.instruments.Main
 api-version: 1.17
 permissions:
 
+  # plugin
   instrument:
-    default: op
+    description: Default permission for plugin
     children:
+      - commands
+      - gui
       - instrument.play
-      - instrument.command
-      - instrument.command.instrument
-      - instrument.command.get
-      - instrument.command.songs
-      - instrument.gui
+      - instrument.song.no-limit
+
+  instrument.play:
+    description: Allows player to play the instrument
+
+  instrument.song.no-limit:
+    description: Unlimited amount of songs player can create it also includes [song export]
+
+  # commands
+  commands:
+    description: Default permission for commands
+    children:
+      - instrument.commands.lang
+      - instrument.commands.update
+      - instrument.commands.instrument
+      - instrument.commands.get
+      - instrument.commands.songs
+
+  instrument.commands.lang:
+    description: Allow player to change plugin language
+    default: op
+
+  instrument.commands.update:
+    description: players with this permission can update plugin
+    default: op
+
+  instrument.commands.instrument:
+    description: /instrument (opens instrument gui)
+
+  instrument.commands.get:
+    description: /instrument get (pick your instrument)
+
+  instrument.commands.songs:
+    description: /instrument songs (opens songs gui)
+
+  # gui
+  gui:
+    description: Default permission for gui
+    children:
       - instrument.gui.instrument
       - instrument.gui.instrument.volume
       - instrument.gui.instrument.rhythm.change
@@ -25,47 +62,21 @@ permissions:
       - instrument.gui.songs.edit
       - instrument.gui.songs.delete
 
-    description: General permission
-
-  instrument.play:
-    description: Enable to play on instruments
-    default: true
-
-  instrument.command:
-    description: General permission
-
-  instrument.command.instrument:
-    description: /instrument (opens instrument gui)
-    default: true
-
-  instrument.command.get:
-    description: /instrument get (pick your instrument)
-
-  instrument.command.songs:
-    description: /instrument songs (opens songs gui)
-
-  instrument.gui:
-    description: General permission
-
+  # gui [Instrument]
   instrument.gui.instrument:
-    description: General permission
-    default: true
+    description: Instrument gui
 
   instrument.gui.instrument.volume:
     description: Change volume button
-    default: true
 
   instrument.gui.instrument.rhythm.change:
     description: Change rhythm on shift press ON/OFF button
-    default: true
 
   instrument.gui.instrument.chords.display:
     description: Display chords above inventory bar ON/OFF button
-    default: true
 
   instrument.gui.instrument.song.import:
     description: Importing chords from a song
-    default: true
 
   instrument.gui.instrument.song.export:
     description: Exporting chords to new song
@@ -73,8 +84,9 @@ permissions:
   instrument.gui.instrument.chords:
     description: Enable Editing chords in instrument GUI
 
+  # gui [Songs]
   instrument.gui.songs:
-    description: General permission
+    description: Songs GUI
 
   instrument.gui.songs.insert:
     description: Enable to insert new song

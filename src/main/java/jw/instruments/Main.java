@@ -29,7 +29,7 @@ public final class Main extends FluentPlugin {
         container.addPlayerContext();
         container.addUpdater(updaterOptions ->
         {
-              updaterOptions.setGithub(Consts.UPDATE_URL);
+              updaterOptions.setGithub(Consts.GITHUB_URL);
         });
         builder.command().setName(Consts.PLUGIN_NAMESPACE);
 

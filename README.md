@@ -1,6 +1,25 @@
 
+![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/banner_plugin.jpg)
+
+
+If you are looking a plugin to enrich server experience this is the solution. Plugin adds bunch of instruments each of them is playable with all possible chords you can imagine. Therefore consider to use this plugin especially on RolePlay server
+
+Plugin tutorial: https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW
+
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/F4iKXAMIioo/0.jpg)](https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW)
+
+
+![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/guitars.gif)
+
+
+![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/chords.gif)
+
+
+![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/chordchange.gif)
+
+
 ![alt text](https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/banners/configuration.png)
+
 ``` yaml
 #
 # plugin.language
@@ -36,36 +55,43 @@ song:
   songs-limit: 5
 
 ```
+
 ![alt text](https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/banners/commands.png)
+
 ``` yaml
 
 
 commands: 
-#/disable
+# /disable
   disable: 
     description: Command only for plugin development purpose. Can be only trigger by Console. disables all plugins
     usage: /disable
 
-#/instrument or /instrument <children>
+# /instrument or /instrument <children>
   instrument: 
     children: 
+      - resourcepack
       - update
       - lang
       - songs
       - get
-      - resourcepack
     permissions: 
       - instrument.commands.instrument
     description: opens instrument configuration GUI where player can modify behaviour currently using
     usage: /instrument or /instrument <children>
-#/instrument update
+# /instrument resourcepack
+  resourcepack: 
+    description: downloads plugin resourcepack
+    usage: /instrument resourcepack
+
+# /instrument update
   update: 
     permissions: 
       - instrument.commands.update
     description: download plugin latest version, can be trigger both by player or console
     usage: /instrument update
 
-#/instrument lang <language>
+# /instrument lang <language>
   lang: 
     permissions: 
       - instrument.commands.lang
@@ -80,14 +106,14 @@ commands:
     description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
     usage: /instrument lang <language>
 
-#/instrument songs
+# /instrument songs
   songs: 
     permissions: 
       - instrument.commands.songs
     description: opens GUI where you can Edit, Create, Delete songs
     usage: /instrument songs
 
-#/instrument get <instrument-type>
+# /instrument get <instrument-type>
   get: 
     permissions: 
       - instrument.commands.get
@@ -96,25 +122,22 @@ commands:
           type: custom
           description: select instrument type
           options: 
-              - electric
               - acoustic
+              - electric
               - classical
     description: by trigger this player will get selected instrument
     usage: /instrument get <instrument-type>
 
-#/instrument resourcepack
-  resourcepack: 
-    description: downloads plugin resourcepack
-    usage: /instrument resourcepack
-
 
 
 ```
+
 ![alt text](https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/banners/permissions.png)
+
 ``` yaml
 permissions: 
 
-#plugin
+# plugin
   instrument: 
     description: Default permission for plugin
     children: 
@@ -129,7 +152,7 @@ permissions:
   instrument.song.no-limit: 
     description: Unlimited amount of songs player can create it also includes [song export]
 
-#commands
+# commands
   commands: 
     description: Default permission for commands
     children: 
@@ -156,7 +179,7 @@ permissions:
   instrument.commands.songs: 
     description: /instrument songs (opens songs gui)
 
-#gui
+# gui
   gui: 
     description: Default permission for gui
     children: 
@@ -172,7 +195,7 @@ permissions:
       - instrument.gui.songs.edit
       - instrument.gui.songs.delete
 
-#gui [Instrument]
+# gui [Instrument]
   instrument.gui.instrument: 
     description: Instrument gui
 
@@ -194,7 +217,7 @@ permissions:
   instrument.gui.instrument.chords: 
     description: Enable Editing chords in instrument GUI
 
-#gui [Songs]
+# gui [Songs]
   instrument.gui.songs: 
     description: Songs GUI
 
