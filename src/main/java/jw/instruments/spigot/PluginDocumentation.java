@@ -20,8 +20,13 @@ public class PluginDocumentation extends DocumentationDecorator {
         addText(StringUtils.EMPTY_STRING, documentation, "spigot-ignore", "github-ignore");
         addText("!Be aware this is only documentation, changes in this file has not impact on plugin", documentation, "spigot-ignore", "github-ignore");
 
-        addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/banner_plugin.jpg", documentation);
-        addText(banner(),documentation);
+        addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/plugin_baner.jpg", documentation);
+
+        addText("<p align=\"center\">",documentation,"spigot-ignore", "plugin-ignore");
+        addImageWithLink("https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png", Consts.DISCORD_URL, documentation);
+        addImageWithLink( "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png", Consts.GITHUB_URL, documentation);
+        addImageWithLink("https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/spigot.png", Consts.SPIGOT_URL, documentation);
+        addText("</p>",documentation,"spigot-ignore", "plugin-ignore");
 
         var builder = createStringBuilder();
         builder.newLine()
@@ -40,21 +45,4 @@ public class PluginDocumentation extends DocumentationDecorator {
         addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/chords.gif", documentation);
         addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/chordchange.gif", documentation);
     }
-
-
-    public String banner() {
-        var builder = createStringBuilder();
-        bannerElement(builder, "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png", Consts.DISCORD_URL);
-        bannerElement(builder, "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png", Consts.GITHUB_URL);
-        bannerElement(builder, "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/spigot.png", Consts.SPIGOT_URL);
-        return builder.build();
-    }
-
-    public void bannerElement(MessageBuilder builder, String image, String link) {
-        builder.text(" [URL='" + link + "']");
-        builder.text("[IMG]").text(image).text("[/IMG]");
-        builder.text("[/URL]");
-    }
-
-
 }
