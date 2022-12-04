@@ -39,8 +39,6 @@ jobs:
   
     - name: 4.1 copy jar files
       run: mkdir staging && cp target/JW_Instruments-${{steps.version.outputs.version_tag}}-shaded.jar staging 
-    - name: 4.1.1 show
-      run: pwd staging && ls -LR   
    
     - name: 4.2 rename file
       run: mv staging/JW_Instruments-${{steps.version.outputs.version_tag}}-shaded.jar ${{github.event.repository.name}}.jar 
@@ -67,4 +65,5 @@ jobs:
           title: ${{ steps.version.outputs.version_tag }}
           files: |
               staging/*.jar
+              instrumentpack
             
