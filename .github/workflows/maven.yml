@@ -31,23 +31,17 @@ jobs:
           bump_each_commit: false    
         
     
-    - name: 3-1 Include Api
+    - name: 3 Include SpigotApi
       run: mvn install:install-file -Dfile=${GITHUB_WORKSPACE}/lib/SpigotFluentApi.jar -DgroupId=jw -DartifactId=SpigotFluentApi -Dversion=1.0.0 -Dpackaging=jar
       
-    - name: 3-2 Build with Maven
-      run: mvn package -P publish -Dname=TestingProject -Dversion=${{steps.version.outputs.version_tag}} --file pom.xml  
-     
-    - name: 4 Run Unit Tests
-      run: mvn -B test -Dname=TestingProject -Dversion=${{steps.version.outputs.version_tag}} --file pom.xml 
-      
-    - name: 4.5 Unit Test Report
-      uses: ashley-taylor/junit-report-annotations-action@1.3
-      if: always()
-      with:
-        access-token: ${{ secrets.GITHUB_TOKEN }}
-      
-    - name: 5 copy jar files
-      run: mkdir staging && cp target/*.jar staging 
+    - name: 3.2 Build with Maven
+      run: mvn package -P publish -Dversion=${{steps.version.outputs.version_tag}} --file pom.xml  
+  
+    - name: 4.1 copy jar files
+      run: mkdir staging && cp target/*shaded.jar staging 
+   
+    - name: 4.2 rename file
+      run: mv  staging/*shaded.jar ${{github.event.repository.name}}.jar 
       
     - name: 6 set up a cache for maven
       uses: actions/cache@v2
@@ -55,8 +49,7 @@ jobs:
          path: ~/.m2
          key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
          restore-keys: ${{runner.os}}-m2
- 
-         
+
     - name: 7 Create Artifacts
       uses: actions/upload-artifact@v2
       with:
