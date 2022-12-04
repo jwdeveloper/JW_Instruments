@@ -25,7 +25,6 @@ jobs:
           major_pattern: "maj"
           minor_pattern: "min"
           format: "${major}.${minor}.${patch}"
-          namespace: develop
           change_path: "."
           short_tags: false
           bump_each_commit: false    
