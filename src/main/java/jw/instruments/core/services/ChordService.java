@@ -93,7 +93,6 @@ public class ChordService {
     }
 
     public List<Chord> find() {
-        FluentLogger.LOGGER.log("Current Chords", chords.size(),this.toString());
         return chords.values().parallelStream().toList();
     }
 

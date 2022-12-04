@@ -63,6 +63,19 @@ public class InstrumentManager {
         instrumentPlayers.put(player.getUniqueId(), gameObject);
     }
 
+    public void tryRegister(Player player) {
+        var mainHand = player.getInventory().getItemInMainHand();
+        if (validateInstrument(mainHand)) {
+            var temp =  player.getInventory().getItemInOffHand();
+            player.getInventory().setItemInOffHand(mainHand);
+            player.getInventory().setItemInMainHand(temp);
+        }
+        var offHand = player.getInventory().getItemInOffHand();
+        if (validateInstrument(offHand)) {
+            register(player, offHand);
+        }
+    }
+
     public void unregister(Player player) {
         if (!validatePlayer(player)) {
             return;

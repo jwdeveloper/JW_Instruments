@@ -2,6 +2,7 @@ package jw.instruments.core.services;
 
 import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.utilites.InventoryUtility;
 import jw.fluent.plugin.implementation.FluentApi;
 import jw.instruments.core.data.PluginPermissions;
 import jw.instruments.spigot.gui.songs.SongsListGui;
@@ -91,15 +92,14 @@ public class CommandsService {
                             .send(event.getPlayer());
                     return;
                 }
-                var itemstack = optionalItemstack.get();
-                event.getPlayer().getInventory().setItem(0,itemstack.getItemStack());
+                var instrumentItemStack = optionalItemstack.get();
+                InventoryUtility.giveToEmptySlotOrDrop(event.getPlayer(),instrumentItemStack.getItemStack(),true);
                 FluentMessage.message()
                         .info()
                         .textSecondary("Press ")
                         .textPrimary('f')
                         .textSecondary(" to use instrument")
                         .send(event.getPlayer());
-
             });
         });
         return cmd;

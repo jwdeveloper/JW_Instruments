@@ -2,7 +2,7 @@ package jw.instruments.spigot.gui;
 
 import jw.fluent.api.player_context.api.PlayerContext;
 import jw.fluent.api.spigot.inventory_gui.button.button_observer.ButtonObserverUI;
-import jw.fluent.plugin.implementation.modules.logger.FluentLogger;
+
 import jw.fluent.plugin.implementation.modules.translator.FluentTranslator;
 import jw.instruments.core.data.PluginPermissions;
 import jw.instruments.core.data.chords.Chord;
@@ -134,7 +134,7 @@ public class InstrumentViewGui extends ChestUI {
 
     private void refreshChords() {
         var chords = instrumentData.getChords().get();
-        FluentLogger.LOGGER.log("Chords refresh");
+
         for (var i = 0; i < INVENTORY_WIDTH; i++) {
             var chordName = chords[i];
             var button = chordsButtons.get(i);

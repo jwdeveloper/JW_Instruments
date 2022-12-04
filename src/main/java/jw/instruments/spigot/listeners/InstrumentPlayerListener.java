@@ -61,21 +61,12 @@ public class InstrumentPlayerListener extends EventBase {
             default -> true;
         };
         if (!manager.validatePlayer(player)) {
-            if (isLeftClick) {
-                return;
-            }
-
-            var mainHand = player.getInventory().getItemInMainHand();
-            if (!manager.validateInstrument(mainHand)) {
-                return;
-            }
-            player.getInventory().setItemInOffHand(mainHand);
-            player.getInventory().setItemInMainHand(null);
-            manager.register(player, mainHand);
+            manager.tryRegister(player);
             return;
         }
         var itemInOffHand = player.getInventory().getItemInOffHand();
         if (!manager.validateInstrument(itemInOffHand)) {
+            manager.unregister(player);
             return;
         }
         event.setCancelled(true);
