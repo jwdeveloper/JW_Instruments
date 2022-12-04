@@ -40,7 +40,8 @@ jobs:
     - name: 4.1 copy jar files
       run: mkdir staging && cp target/JW_Instruments-${{ steps.version.outputs.version_tag }}-shaded.jar staging 
    
-   
+    - name: 4.3 rename file
+      run: (cd staging && mv JW_Instruments-${{ steps.version.outputs.version_tag }}-shaded.jar JW_Instruments.jar)
       
     - name: 4.3 zip resourcepack
       run: (cd instrumentpack && zip -r - .) >instrumentpack.zip
