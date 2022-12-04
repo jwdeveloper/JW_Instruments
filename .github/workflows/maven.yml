@@ -43,6 +43,10 @@ jobs:
     - name: 4.2 rename file
       run: mv staging/JW_Instruments-${{steps.version.outputs.version_tag}}-shaded.jar ${{github.event.repository.name}}.jar 
       
+    - name: 4.3 zip resourcepack
+      run: zip -r instrumentpack.zip instrumentpack
+      
+      
     - name: 6 set up a cache for maven
       uses: actions/cache@v2
       with:
@@ -65,5 +69,5 @@ jobs:
           title: ${{ steps.version.outputs.version_tag }}
           files: |
               staging/*.jar
-              instrumentpack
+              instrumentpack.zip
             
