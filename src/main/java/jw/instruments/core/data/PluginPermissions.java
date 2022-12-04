@@ -1,8 +1,8 @@
 package jw.instruments.core.data;
 
-import jw.fluent_api.spigot.permissions.api.annotations.PermissionGroup;
-import jw.fluent_api.spigot.permissions.api.annotations.PermissionProperty;
-import jw.fluent_api.spigot.permissions.api.annotations.PermissionTitle;
+import jw.fluent.api.spigot.permissions.api.annotations.PermissionGroup;
+import jw.fluent.api.spigot.permissions.api.annotations.PermissionProperty;
+import jw.fluent.api.spigot.permissions.api.annotations.PermissionTitle;
 
 public class PluginPermissions {
 

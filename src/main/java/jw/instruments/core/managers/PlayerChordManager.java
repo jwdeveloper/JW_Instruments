@@ -4,9 +4,9 @@ package jw.instruments.core.managers;
 import jw.instruments.core.data.chords.Chord;
 import jw.instruments.core.data.instrument.InstrumentItemStackObserver;
 import jw.instruments.core.services.ChordService;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import lombok.Getter;
 import lombok.Setter;
 

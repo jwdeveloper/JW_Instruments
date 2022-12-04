@@ -1,8 +1,8 @@
 package jw.instruments.core.instuments;
 
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.spigot.gameobjects.api.models.CustomModel;
-import jw.fluent_plugin.implementation.FluentApi;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.spigot.gameobjects.api.models.CustomModel;
+import jw.fluent.plugin.implementation.FluentApi;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;

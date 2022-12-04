@@ -1,15 +1,14 @@
 package jw.instruments.spigot.gui.songs;
 
-import jw.fluent_api.player_context.api.PlayerContext;
-import jw.fluent_plugin.implementation.modules.translator.FluentTranslator;
+import jw.fluent.api.player_context.api.PlayerContext;
+import jw.fluent.plugin.implementation.modules.translator.FluentTranslator;
 import jw.instruments.core.data.songs.Song;
 import jw.instruments.core.data.songs.SongsRepository;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_api.spigot.inventory_gui.implementation.list_ui.ListUI;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.TextComponent;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent.api.spigot.inventory_gui.implementation.list_ui.ListUI;
+
 @PlayerContext
 @Injection(lifeTime = LifeTime.TRANSIENT)
 public class SongsPickerGui extends ListUI<Song> {

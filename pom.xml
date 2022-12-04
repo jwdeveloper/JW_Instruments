@@ -45,11 +45,12 @@
                         </goals>
                         <configuration>
                             <shadedArtifactAttached>true</shadedArtifactAttached>
-                            <exclude>lib/***</exclude>
+
                             <filters>
                                 <filter>
                                     <excludes>
                                         <exclude>META-INF/*.MF</exclude>
+                                        <exclude>lib/***</exclude>
                                     </excludes>
                                 </filter>
                             </filters>

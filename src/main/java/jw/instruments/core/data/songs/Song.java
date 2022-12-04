@@ -1,10 +1,10 @@
 package jw.instruments.core.data.songs;
 
-import jw.fluent_api.files.api.models.DataModel;
-import jw.fluent_api.spigot.inventory_gui.InventoryUI;
-import jw.fluent_api.spigot.messages.FluentMessage;
-import jw.fluent_api.utilites.java.StringUtils;
-import jw.fluent_api.utilites.messages.Emoticons;
+import jw.fluent.api.files.api.models.DataModel;
+import jw.fluent.api.spigot.inventory_gui.InventoryUI;
+import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.api.utilites.java.StringUtils;
+import jw.fluent.api.utilites.messages.Emoticons;
 import lombok.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

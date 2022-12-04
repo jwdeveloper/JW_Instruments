@@ -1,8 +1,8 @@
 package jw.instruments;
 
-import jw.fluent_plugin.api.FluentApiBuilder;
-import jw.fluent_plugin.implementation.FluentApi;
-import jw.fluent_plugin.implementation.FluentPlugin;
+import jw.fluent.plugin.api.FluentApiBuilder;
+import jw.fluent.plugin.implementation.FluentApi;
+import jw.fluent.plugin.implementation.FluentPlugin;
 import jw.instruments.core.data.Consts;
 import jw.instruments.core.data.PluginPermissions;
 import jw.instruments.core.rhythms.Rhythm;

@@ -1,14 +1,14 @@
 package jw.instruments.core.extentions;
 
-import jw.fluent_plugin.api.FluentApiBuilder;
-import jw.fluent_plugin.api.FluentApiExtention;
-import jw.fluent_plugin.implementation.FluentApi;
+import jw.fluent.plugin.api.FluentApiBuilder;
+import jw.fluent.plugin.api.FluentApiExtention;
+import jw.fluent.plugin.implementation.FluentApi;
 import jw.instruments.core.data.chords.Chord;
 import jw.instruments.core.builders.chord.ChordBuilder;
 import jw.instruments.core.data.Consts;
 import jw.instruments.core.services.ChordService;
-import jw.fluent_api.utilites.files.json.JsonUtility;
-import jw.fluent_api.utilites.java.StringUtils;
+import jw.fluent.api.utilites.files.json.JsonUtility;
+import jw.fluent.api.utilites.java.StringUtils;
 import lombok.Data;
 
 import java.util.ArrayList;

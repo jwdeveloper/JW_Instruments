@@ -1,7 +1,7 @@
 package jw.instruments.spigot.gameobjects.test;
 
-import jw.fluent_api.spigot.gameobjects.api.GameObject;
-import jw.fluent_api.utilites.math.collistions.HitBox;
+import jw.fluent.api.spigot.gameobjects.api.GameObject;
+import jw.fluent.api.utilites.math.collistions.HitBox;
 import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

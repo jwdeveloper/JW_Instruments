@@ -1,7 +1,7 @@
 package jw.instruments.spigot.messages;
 
 import jw.instruments.core.rhythms.Rhythm;
-import jw.fluent_api.spigot.messages.FluentMessage;
+import jw.fluent.api.spigot.messages.FluentMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 

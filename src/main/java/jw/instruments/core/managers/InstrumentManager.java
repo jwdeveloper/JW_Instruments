@@ -1,14 +1,14 @@
 package jw.instruments.core.managers;
 
 
-import jw.fluent_plugin.implementation.FluentApi;
-import jw.fluent_plugin.implementation.modules.player_context.implementation.FluentPlayerContext;
+import jw.fluent.plugin.implementation.FluentApi;
+import jw.fluent.plugin.implementation.modules.player_context.implementation.FluentPlayerContext;
 import jw.instruments.core.services.InstrumentItemStackFactory;
 import jw.instruments.spigot.gameobjects.InstrumentPlayer;
 import jw.instruments.core.instuments.Instrument;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.spigot.gameobjects.implementation.GameObjectManager;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.spigot.gameobjects.implementation.GameObjectManager;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 

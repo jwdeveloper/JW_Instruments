@@ -1,21 +1,21 @@
 package jw.instruments.spigot.gui;
 
-import jw.fluent_api.player_context.api.PlayerContext;
-import jw.fluent_api.spigot.messages.FluentMessage;
-import jw.fluent_plugin.implementation.modules.translator.FluentTranslator;
+import jw.fluent.api.player_context.api.PlayerContext;
+import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.implementation.modules.translator.FluentTranslator;
 import jw.instruments.core.data.chords.Chord;
 import jw.instruments.core.instuments.Instrument;
 import jw.instruments.core.rhythms.Rhythm;
 import jw.instruments.core.rhythms.events.PlayingStyleEvent;
 import jw.instruments.core.services.ChordService;
 import jw.instruments.core.services.InstrumentService;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_api.desing_patterns.observer.implementation.ObserverBag;
-import jw.fluent_api.spigot.inventory_gui.button.button_observer.ButtonObserverUI;
-import jw.fluent_api.spigot.inventory_gui.events.ButtonUIEvent;
-import jw.fluent_api.spigot.inventory_gui.implementation.list_ui.ListUI;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent.api.desing_patterns.observer.implementation.ObserverBag;
+import jw.fluent.api.spigot.inventory_gui.button.button_observer.ButtonObserverUI;
+import jw.fluent.api.spigot.inventory_gui.events.ButtonUIEvent;
+import jw.fluent.api.spigot.inventory_gui.implementation.list_ui.ListUI;
 import org.bukkit.Material;
 
 import java.util.List;

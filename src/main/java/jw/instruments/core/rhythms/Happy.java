@@ -1,8 +1,7 @@
 package jw.instruments.core.rhythms;
 
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.instruments.core.rhythms.events.PlayingStyleEvent;
 
 import java.util.ArrayList;

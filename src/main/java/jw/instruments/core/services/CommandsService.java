@@ -1,15 +1,15 @@
 package jw.instruments.core.services;
 
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_plugin.implementation.FluentApi;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.plugin.implementation.FluentApi;
 import jw.instruments.core.data.PluginPermissions;
 import jw.instruments.spigot.gui.songs.SongsListGui;
-import jw.fluent_api.spigot.commands.FluentCommand;
-import jw.fluent_api.spigot.commands.api.builder.CommandBuilder;
-import jw.fluent_api.spigot.commands.api.enums.ArgumentDisplay;
-import jw.fluent_api.spigot.commands.api.enums.ArgumentType;
-import jw.fluent_api.spigot.messages.FluentMessage;
+import jw.fluent.api.spigot.commands.FluentCommand;
+import jw.fluent.api.spigot.commands.api.builder.CommandBuilder;
+import jw.fluent.api.spigot.commands.api.enums.ArgumentDisplay;
+import jw.fluent.api.spigot.commands.api.enums.ArgumentType;
+import jw.fluent.api.spigot.messages.FluentMessage;
 import org.bukkit.ChatColor;
 
 

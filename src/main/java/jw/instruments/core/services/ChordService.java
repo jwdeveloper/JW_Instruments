@@ -1,15 +1,15 @@
 package jw.instruments.core.services;
 
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent.plugin.implementation.modules.logger.FluentLogger;
 import jw.instruments.core.data.chords.Chord;
 import jw.instruments.core.builders.chord.ChordBuilder;
 import jw.instruments.core.data.chords.Note;
 import jw.instruments.core.data.Consts;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.spigot.messages.FluentMessage;
-import jw.fluent_api.utilites.math.MathUtility;
-import jw.fluent_api.utilites.messages.Emoticons;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.api.utilites.math.MathUtility;
+import jw.fluent.api.utilites.messages.Emoticons;
 import org.bukkit.ChatColor;
 
 import java.util.*;

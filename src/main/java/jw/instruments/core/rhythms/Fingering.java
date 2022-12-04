@@ -1,13 +1,13 @@
 package jw.instruments.core.rhythms;
 
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.instruments.core.data.chords.Note;
 import jw.instruments.core.rhythms.events.NoteEvent;
 import jw.instruments.core.rhythms.events.PlayingStyleEvent;
 import jw.instruments.core.rhythms.timeline.Timeline;
-import jw.fluent_api.spigot.tasks.FluentTaskTimer;
-import jw.fluent_api.spigot.tasks.FluentTasks;
+import jw.fluent.api.spigot.tasks.FluentTaskTimer;
+import jw.fluent.api.spigot.tasks.FluentTasks;
 
 import java.util.HashSet;
 import java.util.List;

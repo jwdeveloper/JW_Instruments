@@ -1,16 +1,14 @@
 package jw.instruments.core.services;
 
-import jw.fluent_api.spigot.events.FluentEvent;
-import jw.fluent_api.spigot.gameobjects.api.models.CustomModel;
-import jw.fluent_api.utilites.seralizer.ItemStackSerializerProfile;
-import jw.fluent_api.utilites.seralizer.ItemStackSerlializer;
-import jw.fluent_plugin.implementation.FluentApi;
-import jw.fluent_plugin.implementation.modules.logger.FluentLogger;
+import jw.fluent.api.spigot.events.FluentEvent;
+import jw.fluent.api.utilites.seralizer.ItemStackSerializerProfile;
+import jw.fluent.api.utilites.seralizer.ItemStackSerlializer;
+import jw.fluent.plugin.implementation.FluentApi;
 import jw.instruments.core.data.instrument.InstrumentData;
 import jw.instruments.core.data.instrument.InstrumentItemStack;
 import jw.instruments.core.instuments.Instrument;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import lombok.SneakyThrows;
 import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.inventory.ItemStack;

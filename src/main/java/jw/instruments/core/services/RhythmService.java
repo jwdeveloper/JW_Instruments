@@ -1,14 +1,11 @@
 package jw.instruments.core.services;
 
-import jw.instruments.core.rhythms.Normal;
 import jw.instruments.core.rhythms.Rhythm;
 import jw.instruments.core.rhythms.events.NoteEvent;
-import jw.instruments.core.rhythms.events.PlayingStyleEvent;
 import jw.instruments.core.factory.RhythmFactory;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Inject;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.annotations.Injection;
-import jw.fluent_api.desing_patterns.dependecy_injection.api.enums.LifeTime;
-import org.bukkit.entity.Player;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
+import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 
 import java.util.List;
 import java.util.function.Consumer;
