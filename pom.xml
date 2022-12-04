@@ -6,11 +6,9 @@
 
     <groupId>jw.instruments</groupId>
     <artifactId>JW_Instruments</artifactId>
-    <version>1.0.0</version>
+    <version>${version}</version>
     <packaging>jar</packaging>
-
     <name>JW_Instruments</name>
-
 
     <properties>
         <java.version>16</java.version>
@@ -47,10 +45,18 @@
                         </goals>
                         <configuration>
                             <shadedArtifactAttached>true</shadedArtifactAttached>
-                            <shadedClassifierName>jar-with-dependencies</shadedClassifierName>
                             <exclude>lib/***</exclude>
+                            <filters>
+                                <filter>
+                                    <excludes>
+                                        <exclude>META-INF/*.MF</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
                         </configuration>
+
                     </execution>
+
                 </executions>
             </plugin>
         </plugins>
