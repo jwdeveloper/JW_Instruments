@@ -8,7 +8,7 @@ public class PluginDocumentation extends DocumentationDecorator
     @Override
     public void decorate(Documentation documentation) {
 
-        addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/banner.png",documentation);
+        addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/banner.jpg",documentation);
         addText("Tutorial",documentation);
         addVideo("https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW",documentation);
     }
