@@ -2,6 +2,15 @@
 ![alt text](https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/banner_plugin.jpg)
 
 
+<p float="center">
+  <img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png"  />
+  <img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png"  />
+   <a href="https://www.Youtube.com/"> <img src="https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png"  /></a>
+   
+</p>
+
+
+
 If you are looking a plugin to enrich server experience this is the solution. Plugin adds bunch of instruments each of them is playable with all possible chords you can imagine. Therefore consider to use this plugin especially on RolePlay server
 
 Plugin tutorial: https://www.youtube.com/watch?v=F4iKXAMIioo&ab_channel=JW
@@ -72,9 +81,9 @@ commands:
     children: 
       - resourcepack
       - update
-      - lang
       - songs
       - get
+      - lang
     permissions: 
       - instrument.commands.instrument
     description: opens instrument configuration GUI where player can modify behaviour currently using
@@ -90,21 +99,6 @@ commands:
       - instrument.commands.update
     description: download plugin latest version, can be trigger both by player or console
     usage: /instrument update
-
-# /instrument lang <language>
-  lang: 
-    permissions: 
-      - instrument.commands.lang
-    arguments: 
-      - language:
-          type: text
-          description: select language
-          options: 
-              - en
-              - kr
-              - pl
-    description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
-    usage: /instrument lang <language>
 
 # /instrument songs
   songs: 
@@ -127,6 +121,21 @@ commands:
               - classical
     description: by trigger this player will get selected instrument
     usage: /instrument get <instrument-type>
+
+# /instrument lang <language>
+  lang: 
+    permissions: 
+      - instrument.commands.lang
+    arguments: 
+      - language:
+          type: text
+          description: select language
+          options: 
+              - en
+              - kr
+              - pl
+    description: Changes plugin languages, changes will be applied after server reload. Change be use both be player or console
+    usage: /instrument lang <language>
 
 
 
