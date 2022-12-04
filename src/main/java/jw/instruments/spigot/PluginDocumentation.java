@@ -44,9 +44,9 @@ public class PluginDocumentation extends DocumentationDecorator {
 
     public String banner() {
         var builder = createStringBuilder();
-        bannerElement(builder, "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/media/discord.png", Consts.DISCORD_URL);
-        bannerElement(builder, "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/media/github.png", Consts.GITHUB_URL);
-        bannerElement(builder, "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/media/spigot.png", Consts.SPIGOT_URL);
+        bannerElement(builder, "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social/discord.png", Consts.DISCORD_URL);
+        bannerElement(builder, "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social/github.png", Consts.GITHUB_URL);
+        bannerElement(builder, "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social/spigot.png", Consts.SPIGOT_URL);
         return builder.build();
     }
 
