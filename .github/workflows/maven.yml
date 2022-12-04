@@ -38,7 +38,7 @@ jobs:
       run: mvn package -P publish -Dversion=${{steps.version.outputs.version_tag}} --file pom.xml  
   
     - name: 4.1 copy jar files
-      run: mkdir staging && cp target/*.jar staging 
+      run: mkdir staging && cp target/JW_Instruments-${{ steps.version.outputs.version_tag }}-shaded.jar staging 
    
    
       
