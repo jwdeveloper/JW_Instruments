@@ -34,6 +34,15 @@ public class PluginDocumentation extends DocumentationDecorator {
                 .text("Therefore consider to use this plugin especially on RolePlay server")
                 .newLine();
 
+        addText("",documentation);
+        addText("Get instrument by:",documentation);
+        addText("/instrument get <instrument-name>",documentation,"bold");
+        addText("",documentation);
+        addText("",documentation);
+        addText("Open instrument menu (instrument need to be held in left hand):",documentation);
+        addText("/instrument",documentation,"bold");
+        addText("",documentation);
+
         addText(builder.build(), documentation, "plugin-ignore");
 
         addText("Plugin tutorial: https://www.youtube.com/watch?v=5X_T7s8Z6YQ&t=1s&ab_channel=JW", documentation, "spigot-ignore");

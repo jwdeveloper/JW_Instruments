@@ -23,7 +23,7 @@ public final class Main extends FluentPlugin {
         container.addMetrics(Consts.BSTATS_ID);
         container.addResourcePack(options ->
         {
-            options.setResourcepackUrl(Consts.RESOURCEPACK_URL);
+            options.setDefaultUrl(Consts.RESOURCEPACK_URL);
             options.setLoadOnJoin(true);
         });
         container.addPlayerContext();
@@ -31,7 +31,7 @@ public final class Main extends FluentPlugin {
         {
               updaterOptions.setGithub(Consts.GITHUB_URL);
         });
-        builder.command().setName(Consts.PLUGIN_NAMESPACE);
+        builder.command().setDefaultCommandName(Consts.PLUGIN_NAMESPACE);
 
         builder.useExtention(new ChordExtention());
         builder.useExtention(new GuitarExtention());
