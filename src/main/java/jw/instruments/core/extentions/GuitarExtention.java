@@ -1,36 +1,36 @@
 package jw.instruments.core.extentions;
 
-import jw.fluent.plugin.api.FluentApiBuilder;
-import jw.fluent.plugin.api.FluentApiExtention;
+import jw.fluent.plugin.api.FluentApiSpigotBuilder;
+import jw.fluent.plugin.api.FluentApiExtension;
 import jw.fluent.plugin.implementation.FluentApi;
+import jw.fluent.plugin.implementation.FluentApiSpigot;
 import jw.instruments.core.data.Consts;
 import jw.instruments.core.services.InstrumentService;
 import jw.instruments.core.data.PluginConfig;
 import jw.instruments.core.instuments.Instrument;
-import jw.fluent.api.spigot.events.FluentEvent;
-import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.implementation.modules.messages.FluentMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.CraftItemEvent;
 
-public class GuitarExtention implements FluentApiExtention {
+public class GuitarExtention implements FluentApiExtension {
 
 
     @Override
-    public void onConfiguration(FluentApiBuilder builder) {
+    public void onConfiguration(FluentApiSpigotBuilder builder) {
 
     }
 
     @Override
-    public void onFluentApiEnable(FluentApi fluentAPI) throws Exception {
-        var config =  FluentApi.injection().findInjection(PluginConfig.class);
-        var instrumentService =  FluentApi.injection().findInjection(InstrumentService.class);
+    public void onFluentApiEnable(FluentApiSpigot fluentAPI) throws Exception {
+        var config =  FluentApi.container().findInjection(PluginConfig.class);
+        var instrumentService =  FluentApi.container().findInjection(InstrumentService.class);
       //TODO custom skins  registerCustomSkins(config, instrumentService);
       //  registerRecipe(config, instrumentService);
     }
 
     @Override
-    public void onFluentApiDisabled(FluentApi fluentAPI) {
+    public void onFluentApiDisabled(FluentApiSpigot fluentAPI) {
 
     }
 
@@ -76,7 +76,7 @@ public class GuitarExtention implements FluentApiExtention {
             Bukkit.addRecipe(recipe);
         }
 
-        FluentEvent.onEvent(CraftItemEvent.class, event ->
+        FluentApi.events().onEvent(CraftItemEvent.class, event ->
         {
             if (!(event.getWhoClicked() instanceof Player player)) {
                 return;

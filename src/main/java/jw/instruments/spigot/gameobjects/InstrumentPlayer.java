@@ -4,7 +4,6 @@ import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent.api.player_context.api.PlayerContext;
 import jw.fluent.api.spigot.permissions.implementation.PermissionsUtility;
-import jw.fluent.api.utilites.InventoryUtility;
 import jw.fluent.plugin.implementation.FluentApi;
 import jw.fluent.plugin.implementation.modules.player_context.api.FluentPlayer;
 import jw.instruments.core.data.Consts;
@@ -17,7 +16,7 @@ import jw.instruments.core.rhythms.events.PlayingStyleEvent;
 import jw.instruments.core.managers.PlayerChordManager;
 import jw.instruments.core.services.RhythmService;
 import jw.fluent.api.spigot.gameobjects.api.GameObject;
-import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.implementation.modules.messages.FluentMessage;
 import jw.fluent.api.utilites.messages.Emoticons;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -125,7 +124,7 @@ public class InstrumentPlayer extends GameObject {
     }
 
     public void openGUI() {
-        FluentApi.spigot()
+        FluentApi
                 .playerContext()
                 .find(InstrumentViewGui.class, fluentPlayer.get())
                 .open(fluentPlayer.get(), instrumentObserver);

@@ -6,7 +6,7 @@ import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Inject;
 import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent.api.desing_patterns.dependecy_injection.api.enums.LifeTime;
 import jw.fluent.api.spigot.inventory_gui.implementation.crafting_ui.CraftingUI;
-import jw.fluent.api.spigot.tasks.FluentTaskTimer;
+import jw.fluent.api.spigot.tasks.SimpleTaskTimer;
 import org.bukkit.entity.Player;
 
 @PlayerContext
@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 public class GuitarCraftingGui extends CraftingUI
 {
     private final InstrumentService instrumentService;
-    private FluentTaskTimer changeReceptureTask;
+    private SimpleTaskTimer changeReceptureTask;
 
     @Inject
     public GuitarCraftingGui(InstrumentService instrumentService)
@@ -26,7 +26,7 @@ public class GuitarCraftingGui extends CraftingUI
     @Override
     protected void onInitialize()
     {
-        changeReceptureTask = new FluentTaskTimer(40,(time, task) ->
+        changeReceptureTask = new SimpleTaskTimer(40,(time, task) ->
         {
             var inst = instrumentService.getInstruments();
             var ins = inst.get(time%inst.size());

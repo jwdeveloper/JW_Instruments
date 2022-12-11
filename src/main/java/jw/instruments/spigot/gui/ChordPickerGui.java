@@ -1,7 +1,7 @@
 package jw.instruments.spigot.gui;
 
 import jw.fluent.api.player_context.api.PlayerContext;
-import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.implementation.modules.messages.FluentMessage;
 import jw.fluent.plugin.implementation.modules.translator.FluentTranslator;
 import jw.instruments.core.data.chords.Chord;
 import jw.instruments.core.instuments.Instrument;

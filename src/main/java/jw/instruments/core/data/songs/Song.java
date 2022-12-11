@@ -2,7 +2,7 @@ package jw.instruments.core.data.songs;
 
 import jw.fluent.api.files.api.models.DataModel;
 import jw.fluent.api.spigot.inventory_gui.InventoryUI;
-import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.implementation.modules.messages.FluentMessage;
 import jw.fluent.api.utilites.java.StringUtils;
 import jw.fluent.api.utilites.messages.Emoticons;
 import lombok.Data;

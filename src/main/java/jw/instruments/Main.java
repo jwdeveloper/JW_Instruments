@@ -1,7 +1,8 @@
 package jw.instruments;
 
-import jw.fluent.plugin.api.FluentApiBuilder;
+import jw.fluent.plugin.api.FluentApiSpigotBuilder;
 import jw.fluent.plugin.implementation.FluentApi;
+import jw.fluent.plugin.implementation.FluentApiSpigot;
 import jw.fluent.plugin.implementation.FluentPlugin;
 import jw.instruments.core.data.Consts;
 import jw.instruments.core.data.PluginPermissions;
@@ -16,7 +17,7 @@ import jw.instruments.spigot.PluginDocumentation;
 public final class Main extends FluentPlugin {
 
     @Override
-    public void onConfiguration(FluentApiBuilder builder) {
+    public void onConfiguration(FluentApiSpigotBuilder builder) {
         var container = builder.container();
         container.registerSingletonList(Instrument.class);
         container.registerSingletonList(Rhythm.class);
@@ -31,16 +32,16 @@ public final class Main extends FluentPlugin {
         {
               updaterOptions.setGithub(Consts.GITHUB_URL);
         });
-        builder.command().setDefaultCommandName(Consts.PLUGIN_NAMESPACE);
+        builder.defaultCommand().setName(Consts.PLUGIN_NAMESPACE);
 
-        builder.useExtention(new ChordExtention());
-        builder.useExtention(new GuitarExtention());
-        builder.useExtention(new CommandExtention());
+        builder.useExtension(new ChordExtention());
+        builder.useExtension(new GuitarExtention());
+        builder.useExtension(new CommandExtention());
 
         container.addDocumentation(options ->
         {
             options.setPermissionModel(PluginPermissions.class);
-            options.addDecorator(new PluginDocumentation());
+            options.addSection(new PluginDocumentation());
 
             if(FluentApi.plugin().getDescription().getVersion().equals("${version}"))
             {
@@ -53,13 +54,15 @@ public final class Main extends FluentPlugin {
     }
 
     @Override
-    public void onFluentApiEnable(FluentApi fluentAPI) {
+    public void onFluentApiEnable(FluentApiSpigot fluentAPI) {
+
+
 
 
     }
 
     @Override
-    public void onFluentApiDisabled(FluentApi fluentAPI) {
+    public void onFluentApiDisabled(FluentApiSpigot fluentAPI) {
 
     }
 }

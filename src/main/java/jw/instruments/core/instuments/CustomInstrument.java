@@ -1,6 +1,7 @@
 package jw.instruments.core.instuments;
 
 import jw.fluent.plugin.implementation.FluentApi;
+import jw.fluent.plugin.implementation.FluentApiSpigot;
 import jw.instruments.core.data.Consts;
 import jw.instruments.core.data.CustomSkin;
 import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.IgnoreInjection;

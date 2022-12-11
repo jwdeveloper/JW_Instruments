@@ -15,7 +15,7 @@ import jw.fluent.api.spigot.inventory_gui.EventsListenerInventoryUI;
 import jw.fluent.api.spigot.inventory_gui.button.ButtonUI;
 import jw.fluent.api.spigot.inventory_gui.implementation.chest_ui.ChestUI;
 import jw.fluent.api.spigot.inventory_gui.implementation.items_list_ui.ItemsSearchUI;
-import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.implementation.modules.messages.FluentMessage;
 import jw.fluent.api.utilites.java.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

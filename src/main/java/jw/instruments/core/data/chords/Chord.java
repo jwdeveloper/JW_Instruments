@@ -1,6 +1,7 @@
 package jw.instruments.core.data.chords;
 
 import jw.fluent.plugin.implementation.FluentApi;
+import jw.fluent.plugin.implementation.FluentApiSpigot;
 import jw.instruments.core.data.Consts;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;

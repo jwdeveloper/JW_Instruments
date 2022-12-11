@@ -1,19 +1,20 @@
 package jw.instruments.core.extentions;
 
-import jw.fluent.api.spigot.messages.FluentMessage;
-import jw.fluent.plugin.api.FluentApiBuilder;
-import jw.fluent.plugin.api.FluentApiExtention;
+import jw.fluent.plugin.implementation.modules.messages.FluentMessage;
+import jw.fluent.plugin.api.FluentApiSpigotBuilder;
+import jw.fluent.plugin.api.FluentApiExtension;
 import jw.fluent.plugin.implementation.FluentApi;
+import jw.fluent.plugin.implementation.FluentApiSpigot;
 import jw.instruments.core.data.PluginPermissions;
 import jw.instruments.core.services.CommandsService;
 import jw.instruments.core.managers.InstrumentManager;
 
-public class CommandExtention implements FluentApiExtention {
+public class CommandExtention implements FluentApiExtension {
 
 
     @Override
-    public void onConfiguration(FluentApiBuilder fluentApiBuilder) {
-        var defaultCommand = fluentApiBuilder.command();
+    public void onConfiguration(FluentApiSpigotBuilder fluentApiBuilder) {
+        var defaultCommand = fluentApiBuilder.defaultCommand();
         defaultCommand.propertiesConfig(propertiesConfig ->
         {
             propertiesConfig.addPermissions(PluginPermissions.INSTRUMENT_CMD);
@@ -22,7 +23,7 @@ public class CommandExtention implements FluentApiExtention {
         });
         defaultCommand.eventsConfig(eventConfig ->
         {
-            var manager = FluentApi.injection().findInjection(InstrumentManager.class);
+            var manager = FluentApi.container().findInjection(InstrumentManager.class);
             eventConfig.onPlayerExecute(event ->
             {
                 final var player = event.getPlayer();
@@ -41,19 +42,19 @@ public class CommandExtention implements FluentApiExtention {
         });
         defaultCommand.subCommandsConfig(subCommandConfig ->
         {
-            var instrumentService = FluentApi.injection().findInjection(CommandsService.class);
+            var instrumentService = FluentApi.container().findInjection(CommandsService.class);
             subCommandConfig.addSubCommand(instrumentService.createSongsListCmd());
             subCommandConfig.addSubCommand(instrumentService.createGetInstrumentCmd());
         });
     }
 
     @Override
-    public void onFluentApiEnable(FluentApi fluentAPI) throws Exception {
+    public void onFluentApiEnable(FluentApiSpigot fluentAPI) throws Exception {
 
     }
 
     @Override
-    public void onFluentApiDisabled(FluentApi fluentAPI) {
+    public void onFluentApiDisabled(FluentApiSpigot fluentAPI) {
 
     }
 }

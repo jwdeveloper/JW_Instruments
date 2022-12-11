@@ -10,7 +10,7 @@ import jw.fluent.api.spigot.commands.FluentCommand;
 import jw.fluent.api.spigot.commands.api.builder.CommandBuilder;
 import jw.fluent.api.spigot.commands.api.enums.ArgumentDisplay;
 import jw.fluent.api.spigot.commands.api.enums.ArgumentType;
-import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.implementation.modules.messages.FluentMessage;
 import org.bukkit.ChatColor;
 
 
@@ -41,7 +41,7 @@ public class CommandsService {
         {
             eventConfig.onPlayerExecute(event ->
             {
-                var gui = FluentApi.spigot().playerContext().find(SongsListGui.class, event.getPlayer());
+                var gui =FluentApi.playerContext().find(SongsListGui.class, event.getPlayer());
                 gui.open(event.getPlayer());
             });
         });

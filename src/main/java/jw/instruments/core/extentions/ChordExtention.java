@@ -1,37 +1,38 @@
 package jw.instruments.core.extentions;
 
-import jw.fluent.plugin.api.FluentApiBuilder;
-import jw.fluent.plugin.api.FluentApiExtention;
+import jw.fluent.plugin.api.FluentApiSpigotBuilder;
+import jw.fluent.plugin.api.FluentApiExtension;
 import jw.fluent.plugin.implementation.FluentApi;
+import jw.fluent.plugin.implementation.FluentApiSpigot;
 import jw.instruments.core.data.chords.Chord;
 import jw.instruments.core.builders.chord.ChordBuilder;
 import jw.instruments.core.data.Consts;
 import jw.instruments.core.services.ChordService;
-import jw.fluent.api.utilites.files.json.JsonUtility;
+import jw.fluent.api.files.implementation.json.JsonUtility;
 import jw.fluent.api.utilites.java.StringUtils;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChordExtention implements FluentApiExtention {
+public class ChordExtention implements FluentApiExtension {
 
 
 
     @Override
-    public void onConfiguration(FluentApiBuilder builder) {
+    public void onConfiguration(FluentApiSpigotBuilder builder) {
 
     }
 
     @Override
-    public void onFluentApiEnable(FluentApi fluentAPI) {
-        var chordsService =  FluentApi.injection().findInjection(ChordService.class);
+    public void onFluentApiEnable(FluentApiSpigot fluentAPI) {
+        var chordsService =  FluentApi.container().findInjection(ChordService.class);
         var chords = loadChords();
         chordsService.add(chords);
     }
 
     @Override
-    public void onFluentApiDisabled(FluentApi fluentAPI) {
+    public void onFluentApiDisabled(FluentApiSpigot fluentAPI) {
 
     }
 

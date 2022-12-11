@@ -1,6 +1,5 @@
 package jw.instruments.core.services;
 
-import jw.fluent.api.spigot.events.FluentEvent;
 import jw.fluent.api.utilites.seralizer.ItemStackSerializerProfile;
 import jw.fluent.api.utilites.seralizer.ItemStackSerlializer;
 import jw.fluent.plugin.implementation.FluentApi;
@@ -31,7 +30,7 @@ public class InstrumentItemStackFactory implements ItemStackSerializerProfile<In
         stackSerlializer = new ItemStackSerlializer(this);
         registerdItems = new HashMap<>();
 
-        FluentEvent.onEvent(PluginDisableEvent.class,this::onDisable);
+        FluentApi.events().onEvent(PluginDisableEvent.class,this::onDisable);
     }
 
     @SneakyThrows
@@ -103,10 +102,6 @@ public class InstrumentItemStackFactory implements ItemStackSerializerProfile<In
 
     private void onDisable(PluginDisableEvent event)
     {
-        if(!event.getPlugin().equals(FluentApi.plugin()))
-        {
-            return;
-        }
         for(var registeredItem : registerdItems.values())
         {
             try

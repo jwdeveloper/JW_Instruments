@@ -3,7 +3,7 @@ package jw.instruments.core.factory;
 import jw.fluent.api.spigot.inventory_gui.InventoryUI;
 import jw.fluent.api.spigot.inventory_gui.button.ButtonUI;
 import jw.fluent.api.spigot.inventory_gui.button.ButtonUIBuilder;
-import jw.fluent.api.spigot.messages.FluentMessage;
+import jw.fluent.plugin.implementation.modules.messages.FluentMessage;
 import jw.fluent.plugin.implementation.modules.translator.FluentTranslator;
 import org.bukkit.Material;
 

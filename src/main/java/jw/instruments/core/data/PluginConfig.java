@@ -2,8 +2,8 @@ package jw.instruments.core.data;
 
 import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.Injection;
 import jw.fluent.plugin.implementation.config.config_sections.FluentConfigSection;
-import jw.fluent.api.utilites.files.yml.api.annotations.YmlFile;
-import jw.fluent.api.utilites.files.yml.api.annotations.YmlProperty;
+import jw.fluent.api.files.implementation.yml.api.annotations.YmlFile;
+import jw.fluent.api.files.implementation.yml.api.annotations.YmlProperty;
 import lombok.Data;
 import org.bukkit.configuration.file.FileConfiguration;
 

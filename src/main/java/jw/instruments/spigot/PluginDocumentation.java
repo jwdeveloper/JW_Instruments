@@ -22,9 +22,11 @@ public class PluginDocumentation extends DocumentationDecorator {
         addImage("https://raw.githubusercontent.com/jwdeveloper/JW_Instruments/master/resources/plugin_baner.jpg", documentation);
 
         addText("<p align=\"center\">",documentation,"spigot-ignore", "plugin-ignore");
+        addText("[CENTER]", documentation, "github-ignore", "plugin-ignore");
         addImageWithLink("https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/discord.png", Consts.DISCORD_URL, documentation);
         addImageWithLink( "https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/github.png", Consts.GITHUB_URL, documentation);
         addImageWithLink("https://raw.githubusercontent.com/jwdeveloper/SpigotFluentAPI/master/resources/social-media/spigot.png", Consts.SPIGOT_URL, documentation);
+        addText("[/CENTER]", documentation, "github-ignore", "plugin-ignore");
         addText("</p>",documentation,"spigot-ignore", "plugin-ignore");
 
         var builder = createStringBuilder();

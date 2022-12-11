@@ -6,8 +6,8 @@ import jw.instruments.core.rhythms.events.NoteEvent;
 import jw.instruments.core.rhythms.events.PlayingStyleEvent;
 import jw.instruments.core.rhythms.timeline.Timeline;
 import jw.fluent.api.desing_patterns.dependecy_injection.api.annotations.IgnoreInjection;
-import jw.fluent.api.spigot.tasks.FluentTaskTimer;
-import jw.fluent.api.spigot.tasks.FluentTasks;
+import jw.fluent.api.spigot.tasks.SimpleTaskTimer;
+import jw.fluent.plugin.implementation.modules.tasks.FluentTasks;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 @IgnoreInjection
 public class CustomRhythm implements Rhythm {
     private boolean isReady = true;
-    private FluentTaskTimer taskTimer;
+    private SimpleTaskTimer taskTimer;
     private PlayingStyleEvent queuedEvent;
     private PlayingStyleEvent currentEvent;
 
